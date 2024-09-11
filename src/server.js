@@ -1,22 +1,12 @@
-const express = require('express');
-const cors = require('cors');
-const emailRoutes= require('./routes/emailRoutes');
-const errorHandler= require('./middlewares/errorHandler');
+import app from '../app.js'; // Ajusta la ruta para que apunte a `app.js` fuera de `src`
+import dotenv from 'dotenv';
 
-const server = express();
+dotenv.config(); // Cargar variables de entorno
 
-server.use(cors());
-server.use(express.json());
+const PORT = process.env.PORT || 5000;
 
-//Rutas
-server.use('/send-email', emailRoutes);
-
-//Middleware para manejar errores 404
-server.use((req, res, next) => {
-    res.status(404).json({ message: 'Página no encontrada '});
+app.listen(PORT, () => {
+  console.log(`Servidor escuchando en http://localhost:${PORT}`);
 });
 
-//Middleware para manejar otros errores
-server.use(errorHandler);
 
-export default server;
