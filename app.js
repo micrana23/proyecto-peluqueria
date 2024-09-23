@@ -12,7 +12,7 @@ app.use(cors());
 app.use(express.json());
 
 // Rutas
-app.use('/send-email', emailRoutes);
+app.use('/send-email', emailRoutes)
 
 // Middleware para manejar errores 404
 app.use((req, res, next) => {
