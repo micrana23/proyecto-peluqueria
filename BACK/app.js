@@ -11,11 +11,17 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// Ruta para la raíz (opcional)
+app.get('/', (req, res) => {
+  res.send('Bienvenido al servidor de Peluquería Xtylo'); // Respuesta simple para la ruta raíz
+});
+
 // Rutas
-app.use('/send-email', emailRoutes)
+app.use('/api/send-email', emailRoutes)
 
 // Middleware para manejar errores 404
 app.use((req, res, next) => {
+  console.log(`Ruta no encontrada: ${req.originalUrl}`);
   res.status(404).json({ message: 'Error 404: Not found' });
 });
 
