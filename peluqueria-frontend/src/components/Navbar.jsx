@@ -16,9 +16,9 @@ function Navbar() {
   };
 
   return (
-    <nav>
-      <ul style={{ display: 'flex', justifyContent: 'space-between', listStyle: 'none' }}>
-        <li><Link to="/">Home</Link></li>
+    <nav className>
+      <ul className="flex space-x-4 list-none">
+        <li><Link to="/" className="text-black hover:text-gray-600">Home</Link></li>
 
         {/* Servicios con menú desplegable */}
         <li
@@ -26,7 +26,7 @@ function Navbar() {
           onMouseLeave={handleMouseLeave}
           style={{ position: 'relative' }}
         >
-          <span>Servicios</span>
+          <span className="text-black hover:text-gray-600 cursor-pointer">Servicios</span>
 
           <Menu
             anchorEl={anchorEl}
@@ -42,7 +42,7 @@ function Navbar() {
           </Menu>
         </li>
 
-        <li><Link to="/contacto">Contacto</Link></li>
+        <li><Link to="/contacto" className="text-black hover:text-gray-600">Contacto</Link></li>
       </ul>
     </nav>
   );

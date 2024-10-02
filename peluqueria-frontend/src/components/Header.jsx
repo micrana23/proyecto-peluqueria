@@ -1,6 +1,7 @@
 import React from "react";
 import { AppBar, Toolbar, IconButton } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import Navbar from "./Navbar";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -10,7 +11,7 @@ const Header = () => {
       position="static"
       sx={{ backgroundColor: "transparent", boxShadow: "green" }}
     >
-      <Toolbar>
+      <Toolbar className="flex justify-between items-center p-4">
         <IconButton
           edge="start"
           color="black"
@@ -24,6 +25,7 @@ const Header = () => {
             style={{ height: 50 }}
           />
         </IconButton>
+        <Navbar />
       </Toolbar>
     </AppBar>
   );
