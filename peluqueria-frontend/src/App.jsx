@@ -15,7 +15,6 @@ function App() {
     <Router>
       <div className="app">
         <Header /> {/* Añadir el Header aquí */}
-        <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/servicios" element={<Servicios />} />
