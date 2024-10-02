@@ -6,15 +6,12 @@ import Contacto from './pages/Contacto';
 import Peluqueria from './pages/Peluqueria';
 import Novias from './pages/Novias';
 import Unas from './pages/Unas';
-import Navbar from './components/Navbar';
-import Header from './components/Header'; // Nuevo componente para la imagen
 import './styles/global.css'; // Archivo CSS global
 
 function App() {
   return (
     <Router>
       <div className="app">
-        <Header /> {/* Añadir el Header aquí */}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/servicios" element={<Servicios />} />
@@ -29,3 +26,5 @@ function App() {
 }
 
 export default App;
+
+
