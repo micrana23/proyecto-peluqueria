@@ -8,6 +8,7 @@ import Novias from './pages/Novias';
 import Unas from './pages/Unas';
 import './styles/global.css'; // Archivo CSS global
 
+
 function App() {
   return (
     <Router>
