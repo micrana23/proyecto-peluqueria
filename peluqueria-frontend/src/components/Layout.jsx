@@ -12,18 +12,19 @@ const Layout = ({ children }) => {
     <div className="flex flex-col w-full min-h-screen bg-gray-100">
       <Header />
       <main className="flex-grow">{children}</main>
-      <footer className="relative p-8 bg-gray-800 text-white">
-        <div className="flex items-center justify-between">
+      <footer className="relative p-4 md:p-8 bg-gray-800 text-white">
+        {/* Ajustamos las secciones para que se apilen en pantallas pequeñas */}
+        <div className="flex flex-wrap items-start justify-between md:flex-nowrap space-y-4 md:space-y-0">
           {/* Sección de dirección (SALON) a la izquierda */}
-          <div className="flex items-center">
+          <div className="flex items-start w-full md:w-auto md:mr-8">
             <LocationOnIcon className="inline mr-2" />
             <div>
-              <h2 className="text-2xl font-bold mt-2">SALON</h2>
+              <h2 className="text-lg md:text-2xl font-bold">SALON</h2>
               <a
                 href="https://maps.app.goo.gl/WMCtPFEV67iSgMuj8"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-base text-white underline"
+                className="text-sm md:text-base text-white underline"
               >
                 Calle Añastro, 13 Madrid
               </a>
@@ -31,35 +32,35 @@ const Layout = ({ children }) => {
           </div>
 
           {/* Sección de contacto (CONTACTO) */}
-          <div className="flex items-center">
+          <div className="flex items-start w-full md:w-auto md:mr-8">
             <PhoneIcon className="inline mr-2" />
             <div>
-              <h2 className="text-2xl font-bold mt-2">CONTACTO</h2>
-              <span className="text-base">918987654 / 665769021</span>
+              <h2 className="text-lg md:text-2xl font-bold">CONTACTO</h2>
+              <span className="text-sm md:text-base">918987654 / 665769021</span>
             </div>
           </div>
 
-          {/* Sección de horario (HORARIO) a la derecha */}
-          <div className="flex items-center">
+          {/* Sección de horario (HORARIO) */}
+          <div className="flex items-start w-full md:w-auto md:mr-8">
             <AccessTimeIcon className="inline mr-2" />
             <div>
-              <h2 className="text-2xl font-bold mt-7">HORARIO</h2>
-              <span className="text-base">De lunes a Viernes 09:30h a 18:30h</span>
-              <span className="text-base block">Sábados 09:00h a 14:30h</span>
+              <h2 className="text-lg md:text-2xl font-bold">HORARIO</h2>
+              <span className="text-sm md:text-base">De lunes a Viernes 09:30h a 18:30h</span>
+              <span className="text-sm md:text-base block">Sábados 09:00h a 14:30h</span>
             </div>
           </div>
 
-          {/* Sección de RRHH */}
-          <div className="flex flex-col items-center">
+          {/* Sección de RRHH (Facebook y Email) */}
+          <div className="flex flex-col items-start w-full md:w-auto">
             <div className="flex mb-1">
-              <FacebookIcon className='mr-2 mt-7' />
-              <a href="mailto:micrana61@gmail.com" className='mr-2 mt-7'>
-                <EmailIcon className='text-white' /> {/* Asegúrate de que el color sea blanco */}
+              <FacebookIcon className="mr-2" />
+              <a href="mailto:micrana61@gmail.com" className="mr-2">
+                <EmailIcon className="text-white" />
               </a>
             </div>
             <div>
-              <span className='text-base'>micrana61@gmail.com</span>
-              <Link to="/politica-privacidad" className="text-base block text-white underline mt-1">
+              <span className="text-sm md:text-base">micrana61@gmail.com</span>
+              <Link to="/politica-privacidad" className="text-sm md:text-base block text-white underline mt-1">
                 Política de Privacidad
               </Link>
             </div>
@@ -67,7 +68,7 @@ const Layout = ({ children }) => {
         </div>
 
         {/* Sección de copyright centrada */}
-        <div className="text-center mt-4 text-lg">© 2024 Xtylo Peluquería</div>
+        <div className="text-center mt-4 text-sm md:text-lg">© 2024 Xtylo Peluquería</div>
       </footer>
     </div>
   );
