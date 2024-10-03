@@ -10,12 +10,12 @@ const PrivacyPolicy = () => {
         En cumplimiento del deber de información que establece la Ley La 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y del Comercio Electrónico, le comunicamos que la presente web es titularidad de:
       </p>
       <ul className="list-disc pl-6 mb-4">
-        <li>Denominación Social: ALIANZA CREATIVA ESTABLE AGRADECIDA S.L.; NATHYFA S.L. (En adelante El Responsable)</li>
-        <li>CIF / NIF: B-88155569; B-88170352</li>
-        <li>Domicilio Social: C/ Juan Ramón Jiménez, 6, 28036 – Madrid; C/ Diligencia, 4, 28018 – Madrid</li>
-        <li>Teléfonos: 914 57 44 07; 913 03 04 61</li>
-        <li>e-Mail: central@mirache.es</li>
-        <li>Nombre de dominios: www.mirache.es (En adelante El sitio web)</li>
+        <li>Denominación Social: PELUQUERIA XTYLO S.L.; (En adelante El Responsable)</li>
+        <li>CIF / NIF: B-00000002; B-00000001</li>
+        <li>Domicilio Social: C/ Calle Añastro, 13, 28036 – Madrid; </li>
+        <li>Teléfonos: 91000 00 00; </li>
+        <li>e-Mail: micrana61@gmail.es</li>
+        <li>Nombre de dominios: www.peluqueriaXtylo.es (En adelante El sitio web)</li>
       </ul>
 
       <h2 className="text-2xl font-bold mb-2">OBJETO</h2>

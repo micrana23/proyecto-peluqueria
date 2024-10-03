@@ -12,10 +12,9 @@ const Header = () => {
       sx={{
         backgroundColor: "rgba(243, 244, 246, 1)",
         boxShadow: "none",
-        maxWidth: "100%",
       }}
     >
-      <Toolbar className="flex justify-between items-center p-4 max-w-screen-lg mx-auto w-full">
+      <Toolbar className="flex justify-between items-center p-4 w-full">
         <IconButton
           edge="start"
           color="black"
