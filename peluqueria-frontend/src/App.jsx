@@ -7,6 +7,7 @@ import Peluqueria from './pages/Peluqueria';
 import Novias from './pages/Novias';
 import Unas from './pages/Unas';
 import './styles/global.css'; // Archivo CSS global
+import PrivacyPolicy from './pages/PrivacyPolicy';
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
           <Route path="/servicios/novias" element={<Novias />} />
           <Route path="/servicios/unas" element={<Unas />} />
           <Route path="/contacto" element={<Contacto />} />
+          <Route path="/politica-privacidad" element={<PrivacyPolicy />} />
         </Routes>
       </div>
     </Router>

@@ -5,6 +5,7 @@ import PhoneIcon from '@mui/icons-material/Phone';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import EmailIcon from '@mui/icons-material/Email';
+import { Link } from 'react-router-dom';
 
 const Layout = ({ children }) => {
   return (
@@ -18,7 +19,14 @@ const Layout = ({ children }) => {
             <LocationOnIcon className="inline mr-2" />
             <div>
               <h2 className="text-2xl font-bold mt-2">SALON</h2>
-              <span className="text-base">Calle San Pito Pato, 69</span>
+              <a
+                href="https://maps.app.goo.gl/WMCtPFEV67iSgMuj8"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-base text-white underline"
+              >
+                Calle Añastro, 13 Madrid
+              </a>
             </div>
           </div>
 
@@ -43,13 +51,17 @@ const Layout = ({ children }) => {
 
           {/* Sección de RRHH */}
           <div className="flex flex-col items-center">
-            <div className="flex mb-1"> {/* Asegura que los iconos estén centrados */}
+            <div className="flex mb-1">
               <FacebookIcon className='mr-2 mt-7' />
-              <EmailIcon className='mr-2 mt-7' />
+              <a href="mailto:micrana61@gmail.com" className='mr-2 mt-7'>
+                <EmailIcon className='text-white' /> {/* Asegúrate de que el color sea blanco */}
+              </a>
             </div>
             <div>
-              <span className='text-base'>info@Xtylo.es</span>
-              <span className="text-base block">Política de Privacidad</span>
+              <span className='text-base'>micrana61@gmail.com</span>
+              <Link to="/politica-privacidad" className="text-base block text-white underline mt-1">
+                Política de Privacidad
+              </Link>
             </div>
           </div>
         </div>
