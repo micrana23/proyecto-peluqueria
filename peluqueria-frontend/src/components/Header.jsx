@@ -9,21 +9,21 @@ const Header = () => {
   return (
     <AppBar
       position="static"
-      sx={{ backgroundColor: "transparent", boxShadow: "green" }}
+      sx={{
+        backgroundColor: "rgba(243, 244, 246, 1)",
+        boxShadow: "none",
+        maxWidth: "100%",
+      }}
     >
-      <Toolbar className="flex justify-between items-center p-4">
+      <Toolbar className="flex justify-between items-center p-4 max-w-screen-lg mx-auto w-full">
         <IconButton
           edge="start"
           color="black"
           aria-label="home"
-          onClick={() => navigate("/")} // Navega a la página de inicio
+          onClick={() => navigate("/")}
           sx={{ padding: 1 }}
         >
-          <img
-            src="/xtylo.png"
-            alt="Peluqueria Xtylo" 
-            style={{ height: 50 }}
-          />
+          <img src="/xtylo.png" alt="Peluqueria Xtylo" style={{ height: 50 }} />
         </IconButton>
         <Navbar />
       </Toolbar>
