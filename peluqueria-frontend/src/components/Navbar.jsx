@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, MenuItem } from '@mui/material';
+import PropTypes from 'prop-types'; // Importar PropTypes
 
-function Navbar() {
+
+function Navbar({ isNovias }) { // Recibir la prop isNovias
   const [anchorEl, setAnchorEl] = useState(null);
 
   // Abrir menú cuando el mouse entra
@@ -15,11 +17,14 @@ function Navbar() {
     setAnchorEl(null);
   };
 
+  // Definir clase de texto según la prop isNovias
+  const textColorClass = isNovias ? 'text-white' : 'text-black';
+
   return (
     <nav className="flex">
       <ul className="flex space-x-4 list-none">
         <li>
-          <Link to="/" className="text-black hover:text-gray-600">
+          <Link to="/" className={`${textColorClass} hover:text-gray-600`}>
             Home
           </Link>
         </li>
@@ -30,7 +35,7 @@ function Navbar() {
           onMouseLeave={handleMouseLeave}
           className="relative"
         >
-          <span className="text-black hover:text-gray-600 cursor-pointer">
+          <span className={`${textColorClass} hover:text-gray-600 cursor-pointer`}>
             Servicios
           </span>
 
@@ -55,7 +60,7 @@ function Navbar() {
         </li>
 
         <li>
-          <Link to="/contacto" className="text-black hover:text-gray-600">
+          <Link to="/contacto" className={`${textColorClass} hover:text-gray-600`}>
             Contacto
           </Link>
         </li>
@@ -65,4 +70,3 @@ function Navbar() {
 }
 
 export default Navbar;
-

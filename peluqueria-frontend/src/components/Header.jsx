@@ -8,16 +8,19 @@ const Header = () => {
 
   return (
     <AppBar
-      position="static"
+      position="absolute" // Mantener la posición como absoluta
       sx={{
-        backgroundColor: "rgba(243, 244, 246, 1)",
-        boxShadow: "none",
+        backgroundColor: "transparent", // Sin fondo
+        boxShadow: "none", // Sin sombra
+        top: 0,
+        left: 0,
+        right: 0,
       }}
     >
       <Toolbar className="flex justify-between items-center p-4 w-full">
         <IconButton
           edge="start"
-          color="black"
+          color="inherit" // Cambiar el color a 'inherit' para heredar el color del texto de la imagen
           aria-label="home"
           onClick={() => navigate("/")}
           sx={{ padding: 1 }}
