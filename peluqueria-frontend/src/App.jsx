@@ -6,7 +6,7 @@ import Contacto from './pages/Contacto';
 import Peluqueria from './pages/Peluqueria';
 import Novias from './pages/Novias';
 import Unas from './pages/Unas';
-import './styles/global.css'; // Archivo CSS global
+import "./styles/global.css"
 import PrivacyPolicy from './pages/PrivacyPolicy';
 
 
