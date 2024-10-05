@@ -1,17 +1,24 @@
 import React, { useState } from 'react';
 import Layout from '../components/Layout';
+import { Link } from 'react-router-dom';
 
 const Contacto = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
-    message: ''
+    message: '',
+    acceptPolicy: false
   });
 
   const [errors, setErrors] = useState({});
+
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value, type, checked } = e.target;
+    setFormData({
+      ...formData,
+      [name]: type === 'checkbox' ? checked : value,
+    });
   };
 
   const validate = () => {
@@ -28,6 +35,7 @@ const Contacto = () => {
       formErrors.phone = "Formato de teléfono no válido";
     }
     if (!formData.message) formErrors.message = "Este campo es requerido";
+    if (!formData.acceptPolicy) formErrors.acceptPolicy = "Debe aceptar la política de privacidad";
     return formErrors;
   };
 
@@ -62,6 +70,7 @@ const Contacto = () => {
     <Layout>
       <div className="flex flex-col items-center justify-center min-h-screen bg-green-200">
         <h1 className="text-2xl md:text-4xl font-bold text-center mb-4">¿Tienes alguna duda? ¡Escríbenos!</h1>
+        
         <form onSubmit={handleSubmit} className="flex flex-col w-full max-w-5xl mx-auto p-4 bg-white shadow-md rounded-lg">
           <input
             type="text"
@@ -81,7 +90,7 @@ const Contacto = () => {
                 placeholder="Email"
                 onChange={handleChange}
                 value={formData.email}
-                className={`p-2 border ${errors.email ? 'border-red-500' : 'border-gray-300'} rounded w-full bg-pink-100 text-left focus:outline-none focus:ring-2 focus:ring-pink-300`}
+                className={`p-2 mb-4 border ${errors.email ? 'border-red-500' : 'border-gray-300'} rounded w-full bg-pink-100 text-left focus:outline-none focus:ring-2 focus:ring-pink-300`}
               />
               {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
             </div>
@@ -93,7 +102,7 @@ const Contacto = () => {
                 placeholder="Teléfono"
                 onChange={handleChange}
                 value={formData.phone}
-                className={`p-2 border ${errors.phone ? 'border-red-500' : 'border-gray-300'} rounded w-full bg-pink-100 text-left focus:outline-none focus:ring-2 focus:ring-pink-300`}
+                className={`p-2 mb-4 border ${errors.phone ? 'border-red-500' : 'border-gray-300'} rounded w-full bg-pink-100 text-left focus:outline-none focus:ring-2 focus:ring-pink-300`}
               />
               {errors.phone && <p className="text-red-500 text-sm">{errors.phone}</p>}
             </div>
@@ -104,10 +113,27 @@ const Contacto = () => {
             placeholder="Mensaje"
             onChange={handleChange}
             value={formData.message}
-            className={`mb-4 p-2 border ${errors.message ? 'border-red-500' : 'border-gray-300'} rounded w-full bg-pink-100 md:h-[150px] focus:outline-none focus:ring-2 focus:ring-pink-300`}
+            className={`mb-4 p-2 border ${errors.message ? 'border-red-500' : 'border-gray-300'} rounded w-full bg-pink-100 md:h-[150px] sm:w-full sm:h-24 focus:outline-none focus:ring-2 focus:ring-pink-300`}
           ></textarea>
           {errors.message && <p className="text-red-500 text-sm">{errors.message}</p>}
-          
+
+          <div className="flex items-center mb-4">
+            <input
+              type="checkbox"
+              name="acceptPolicy"
+              onChange={handleChange}
+              checked={formData.acceptPolicy}
+              className="mr-2 focus:outline-none focus:ring-2 focus:ring-pink-300"
+            />
+            <span className="text-sm">
+              Acepto la{' '}
+              <Link to="/politica-privacidad" className="text-blue-500 hover:underline">
+                Política de Privacidad
+              </Link>
+            </span>
+          </div>
+          {errors.acceptPolicy && <p className="text-red-500 text-sm">{errors.acceptPolicy}</p>}
+
           <button 
             type="submit" 
             className="bg-white text-black border border-black py-2 px-4 rounded hover:bg-gray-100 text-sm md:ml-auto md:w-auto"
@@ -121,5 +147,6 @@ const Contacto = () => {
 };
 
 export default Contacto;
+
 
 
