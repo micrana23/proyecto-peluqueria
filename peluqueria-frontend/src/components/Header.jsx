@@ -1,17 +1,21 @@
 import React from "react";
 import { AppBar, Toolbar, IconButton } from "@mui/material";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import Navbar from "./Navbar";
 
 const Header = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+
+  // Verificar si estás en la página de Novias
+  const isNoviasPage = location.pathname === "../pages/Novias.jsx";
 
   return (
     <AppBar
-      position="absolute" // Mantener la posición como absoluta
+      position="fixed" 
       sx={{
-        backgroundColor: "transparent", // Sin fondo
-        boxShadow: "none", // Sin sombra
+        backgroundColor: "transparent", 
+        boxShadow: "none", 
         top: 0,
         left: 0,
         right: 0,
@@ -20,14 +24,16 @@ const Header = () => {
       <Toolbar className="flex justify-between items-center p-4 w-full">
         <IconButton
           edge="start"
-          color="inherit" // Cambiar el color a 'inherit' para heredar el color del texto de la imagen
+          color="inherit" 
           aria-label="home"
           onClick={() => navigate("/")}
           sx={{ padding: 1 }}
         >
           <img src="/xtylo.png" alt="Peluqueria Xtylo" style={{ height: 50 }} />
         </IconButton>
-        <Navbar />
+
+        {/* Pasar la prop isNovias al Navbar */}
+        <Navbar isNovias={isNoviasPage} />
       </Toolbar>
     </AppBar>
   );

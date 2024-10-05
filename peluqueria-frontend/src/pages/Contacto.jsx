@@ -60,7 +60,7 @@ const Contacto = () => {
 
   return (
     <Layout>
-      <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+      <div className="flex flex-col items-center justify-center min-h-screen bg-green-200">
         <h1 className="text-2xl md:text-4xl font-bold text-center mb-4">¿Tienes alguna duda? ¡Escríbenos!</h1>
         <form onSubmit={handleSubmit} className="flex flex-col w-full max-w-5xl mx-auto p-4 bg-white shadow-md rounded-lg">
           <input
