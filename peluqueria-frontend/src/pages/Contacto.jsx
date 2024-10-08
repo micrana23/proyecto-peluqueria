@@ -70,8 +70,8 @@ const Contacto = () => {
   return (
     <Layout>
       <div className="flex flex-col items-center justify-center min-h-screen bg-green-200">
-        <h1 className="text-2xl md:text-4xl font-bold text-center mb-4">
-          ¿Tienes alguna duda? ¡Escríbenos!
+        <h1 className="font-poppins font-light text-xl md:text-3xl lg:text-4xl text-black text-center underline mb-5">
+          ¿Tienes alguna duda?, ¡Escríbenos!
         </h1>
 
         <form

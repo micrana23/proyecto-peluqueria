@@ -1,38 +1,57 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f8f8f8;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f8f8;
+}
+
+.custom-h1 {
+  font-family: "Poppins", Helvetica, Arial, Lucida, sans-serif; /* Fuente personalizada */
+  font-weight: 50; /* Peso de la fuente */
+  font-size: 50px; /* Tamaño de fuente */
+  color: #faf5f5;
+  text-align: center; /* Alineación */
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+input,
+textarea {
+  margin: 10px 0;
+  padding: 10px;
+  font-size: 16px;
+}
+
+button {
+  padding: 10px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+@media (max-width: 640px) {
+  .pelu-h1 {
+    font-family: "Poppins", Helvetica, Arial, Lucida, sans-serif; /* Fuente personalizada */
+    font-weight: 50; /* Peso de la fuente */
+    font-size: 50px; /* Tamaño de fuente */
+    color: #faf5f5;
+    text-align: center; /* Alineación */
+    position: absolute;
+    top: 30% !important;
+    left: 50%;
   }
-  
-  h1 {
-    color: #333;
-  }
-  
-  form {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  input, textarea {
-    margin: 10px 0;
-    padding: 10px;
-    font-size: 16px;
-  }
-  
-  button {
-    padding: 10px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #45a049;
-  }
-  
+}

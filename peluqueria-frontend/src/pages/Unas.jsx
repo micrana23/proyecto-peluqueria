@@ -1,17 +1,14 @@
-
-import React from 'react';
-import Layout from '../components/Layout';
+import React from "react";
+import Layout from "../components/Layout";
 
 const Unas = () => {
   return (
     <Layout>
-       <div>
-      <h1>Uñas</h1>
-      <p>Servicios de uñas...</p>
-    </div>
-
+      <div>
+        <h1 className="custom-h1">Uñas</h1>
+        <p>Servicios de uñas...</p>
+      </div>
     </Layout>
-   
   );
 };
 

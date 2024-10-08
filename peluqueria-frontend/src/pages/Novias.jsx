@@ -6,9 +6,9 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 const Novias = () => {
   const images = [
-    "../../public/assets/images/coleta.webp",
-    "../../public/assets/images/peinando.webp",
-    "../../public/assets/images/rubia.webp", // Añade aquí más imágenes
+    "/assets/images/coleta.webp",
+    "/assets/images/peinando.webp",
+    "/assets/images/rubia.webp", // Añade aquí más imágenes
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -36,14 +36,17 @@ const Novias = () => {
         />
 
         {/* Texto superpuesto en la parte superior de la imagen */}
-        <div className="absolute inset-0 flex flex-col items-center justify-start z-10" style={{ top: '25%' }}> {/* Ajusta el valor de 'top' */}
+        <div
+          className="absolute inset-0 flex flex-col items-center justify-start z-10"
+          style={{ top: "25%" }}
+        >
           <h1 className="text-white text-4xl md:text-6xl font-bold shadow-lg font-playfair text-center">
             Servicio Integral de Novias
           </h1>
         </div>
 
         {/* Contenido por debajo del título */}
-        <div className="relative z-20 flex flex-col items-center justify-center my-2"> {/* Reducir margen superior e inferior */}
+        <div className="relative z-20 flex flex-col items-center justify-center my-2">
           <h2 className="text-black text-4xl text-center font-dancing mb-2">
             <em>Te acompañamos en tu día más importante</em>
           </h2>
@@ -60,9 +63,8 @@ const Novias = () => {
           </p>
         </div>
 
-        {/* Nuevo contenedor para el carrusel de imágenes */}
+        {/* Carrusel de imágenes */}
         <div className="relative z-20 flex flex-col md:flex-row items-center justify-center bg-yellow-100 py-10 my-12">
-          {/* Carrusel de imágenes */}
           <div className="flex-1 flex items-center justify-center">
             <IconButton onClick={prevImage} aria-label="Previous">
               <ArrowBackIcon />
@@ -77,12 +79,11 @@ const Novias = () => {
             </IconButton>
           </div>
 
-          {/* Nuevo contenedor a la derecha para "Pack de Novia" */}
+          {/* Contenedor para "Pack de Novia" */}
           <div className="flex-1 bg-white p-4 rounded-lg shadow-md max-w-md mx-4 mt-4 md:mt-0">
             <h2 className="text-black text-3xl font-playfair mb-4 text-center">
               Pack de Novia
             </h2>
-            {/* Subtítulo "Pruebas" */}
             <h3 className="text-black text-2xl font-playfair mt-6 mb-2 text-start">
               Pruebas
             </h3>
