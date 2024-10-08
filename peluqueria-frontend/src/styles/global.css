@@ -43,15 +43,11 @@ button:hover {
   background-color: #45a049;
 }
 
-@media (max-width: 640px) {
-  .pelu-h1 {
-    font-family: "Poppins", Helvetica, Arial, Lucida, sans-serif; /* Fuente personalizada */
-    font-weight: 50; /* Peso de la fuente */
-    font-size: 50px; /* Tamaño de fuente */
-    color: #faf5f5;
-    text-align: center; /* Alineación */
-    position: absolute;
-    top: 30% !important;
-    left: 50%;
+
+  @media (max-width: 767px) {
+    .novias-text {
+      top: 42% !important; /* Ajuste más alto para móviles */
+    }
   }
-}
+  
+  
