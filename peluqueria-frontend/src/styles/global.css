@@ -35,4 +35,11 @@ body {
   button:hover {
     background-color: #45a049;
   }
+
+  @media (max-width: 767px) {
+    .novias-text {
+      top: 42% !important; /* Ajuste más alto para móviles */
+    }
+  }
+  
   
