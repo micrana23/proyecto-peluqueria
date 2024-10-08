@@ -1,10 +1,10 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
 const Servicios = () => {
   return (
     <>
-      <h1 className="text-black font-bold">Servicios</h1>
+      <h1 className="custom-h1">Servicios</h1>
       <div className="relative inline-block text-left">
         <div>
           <button
