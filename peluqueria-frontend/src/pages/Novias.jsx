@@ -8,7 +8,7 @@ const Novias = () => {
   const images = [
     "/assets/images/coleta.webp",
     "/assets/images/peinando.webp",
-    "/assets/images/rubia.webp",
+    "/assets/images/rubia.webp", // Añade aquí más imágenes
     "/assets/images/novia.webp",
   ];
 
@@ -46,7 +46,7 @@ const Novias = () => {
           </h1>
         </div>
 
-        {/* Contenido por debajo del título */}
+        {/* Contenido por debajo del título */
         <div className="relative z-20 flex flex-col items-center justify-center my-6 lg:my-12 px-4">
           <h2 className="text-black text-2xl md:text-3xl text-center font-dancing mb-2">
             <em>Te acompañamos en tu día más importante</em>
@@ -79,7 +79,6 @@ const Novias = () => {
               <ArrowForwardIcon />
             </IconButton>
           </div>
-
           {/* Pack de Novia */}
           <div className="flex-1 bg-white p-4 rounded-lg shadow-md max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg mx-4 mt-4 md:mt-0 lg:mr-24">
             <h2 className="text-black text-2xl md:text-3xl lg:text-4xl font-playfair mb-4 text-center">
