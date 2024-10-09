@@ -80,7 +80,7 @@ const Novias = () => {
             </IconButton>
           </div>
           {/* Pack de Novia */}
-          <div className="flex-1 bg-white p-4 rounded-lg shadow-md max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg mx-4 mt-4 md:mt-0">
+          <div className="flex-1 bg-white p-4 rounded-lg shadow-md max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg mx-4 mt-4 md:mt-0 lg:mr-24">
             <h2 className="text-black text-2xl md:text-3xl lg:text-4xl font-playfair mb-4 text-center">
               Pack de Novia
             </h2>
@@ -187,7 +187,7 @@ const Novias = () => {
           >
             <Box
               component="img"
-              src="/assets/images/Forbici.jpg"
+              src="/assets/images/chica-cogiendo-cita.jpg"
               alt="Solicita tu cita"
               sx={{ width: "100%", height: "100%", objectFit: "cover" }}
             />
