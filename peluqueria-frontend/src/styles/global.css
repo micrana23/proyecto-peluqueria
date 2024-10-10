@@ -49,5 +49,11 @@ button:hover {
       top: 42% !important; /* Ajuste más alto para móviles */
     }
   }
+
+  @media (max-width: 767px) {
+    .uñas-text {
+      top: 42% !important; /* Ajuste más alto para móviles */
+    }
+  }
   
   
