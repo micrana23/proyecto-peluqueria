@@ -46,7 +46,7 @@ const Novias = () => {
           </h1>
         </div>
 
-        {/* Contenido por debajo del título */
+        {/* Contenido por debajo del título */}
         <div className="relative z-20 flex flex-col items-center justify-center my-6 lg:my-12 px-4">
           <h2 className="text-black text-2xl md:text-3xl text-center font-dancing mb-2">
             <em>Te acompañamos en tu día más importante</em>

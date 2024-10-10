@@ -15,8 +15,20 @@ body {
   font-family: "Poppins", Helvetica, Arial, Lucida, sans-serif; /* Fuente personalizada */
   font-weight: 50; /* Peso de la fuente */
   font-size: 50px; /* Tamaño de fuente */
-  color: #faf5f5;
+  color: #9e8484;
   text-align: center; /* Alineación */
+}
+
+@media (max-width: 768px) {
+  .custom-h1 {
+    font-size: 32px; /* Tamaño para pantallas pequeñas */
+  }
+}
+
+@media (max-width: 480px) {
+  .custom-h1 {
+    font-size: 28px; /*Tamaño para pantallas muy pequeñas */
+  }
 }
 
 form {
@@ -42,18 +54,3 @@ button {
 button:hover {
   background-color: #45a049;
 }
-
-
-  @media (max-width: 767px) {
-    .novias-text {
-      top: 42% !important; /* Ajuste más alto para móviles */
-    }
-  }
-
-  @media (max-width: 767px) {
-    .uñas-text {
-      top: 42% !important; /* Ajuste más alto para móviles */
-    }
-  }
-  
-  
