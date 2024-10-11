@@ -17,7 +17,7 @@ const Unas = () => {
         <Box
           className="absolute inset-0 flex flex-col items-center justify-start uñas-text"
           sx={{
-            top: { xs: "60%", sm: "50%", md: "55%" }, // Ajusta el valor de 'top' para diferentes tamaños
+            top: { xs: "43%", sm: "55%", md: "50%", lg:"55%", xl:"57%"},
             transform: "translateY(-50%)",
             zIndex: 10,
           }}
@@ -208,17 +208,17 @@ const Unas = () => {
             href="mailto:micrana61@gmail.com"
             sx={{
               position: "absolute",
-              width: { xs: "150px", md: "250px" },
-              height: { xs: "150px", md: "250px" },
+              width: { xs: "200px", md: "300px" },
+              height: { xs: "200px", md: "300px" },
               left: "50%",
               transform: "translate(-50%, -50%)",
               borderRadius: "50%",
               overflow: "hidden",
               boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.3)",
               top: {
-                xs: "calc(30% + 50px)",
+                xs: "calc(25% + 50px)",
                 sm: "calc(40% + 70px)",
-                md: "calc(30% + 80px)",
+                md: "calc(15% + 80px)",
               },
             }}
           >

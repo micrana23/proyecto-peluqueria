@@ -37,14 +37,24 @@ const Novias = () => {
         />
 
         {/* Texto superpuesto */}
-        <div
-          className="absolute inset-0 flex flex-col items-center justify-start z-10 novias-text"
-          style={{ top: "50%", transform: "translateY(-50%)" }}
+        <Box
+          className="absolute inset-0 flex flex-col items-center justify-start"
+          sx={{
+            top: { xs: "43%", sm: "55%", md: "50%", lg:"55%", xl:"57%"},
+            transform: "translateY(-50%)",
+            zIndex: 10,
+          }}
         >
-          <h1 className="text-white text-3xl md:text-5xl lg:text-6xl font-bold shadow-lg font-playfair text-center">
-            Servicio Integral de Novias
-          </h1>
-        </div>
+          <Typography
+            variant="h1"
+            className="text-white font-bold shadow-lg font-playfair text-center"
+            sx={{
+              fontSize: { xs: "2rem", sm: "3rem", md: "4rem", lg: "5rem" },
+            }}
+          >
+            Servicio integral de Novias
+          </Typography>
+        </Box>
 
         {/* Contenido por debajo del título */}
         <div className="relative z-20 flex flex-col items-center justify-center my-6 lg:my-12 px-4">
@@ -119,8 +129,18 @@ const Novias = () => {
           </div>
         </div>
 
-        {/* Imágenes abstractas */}
-        <Box className="relative z-30 flex justify-center items-center space-x-4 md:space-x-6 py-16 md:py-28 my-12 md:my-24 px-4">
+        {/* Contenedor de Imágenes Abstractas con Fondo Distinto */}
+        <Box
+          className="relative z-30 flex justify-center items-center space-x-4 md:space-x-6 py-16 md:py-28 pt-30 my-16 md:my-24 px-4"
+          sx={{
+            backgroundColor: "#90EE90", // Fondo de color claro
+            display: "flex",
+            flexDirection: "row", // Asegúrate de que las imágenes se distribuyan en fila
+            justifyContent: "center", // Centrar horizontalmente
+            alignItems: "center", // Alineación vertical
+            minHeight: { xs: "200px", md: "auto" }, // Ajusta la altura mínima para móviles
+          }}
+        >
           <Box
             component="img"
             src="/assets/images/flor.webp"
@@ -128,7 +148,7 @@ const Novias = () => {
             className="w-24 h-auto md:w-32 lg:w-40 rounded-lg shadow-lg"
             sx={{
               position: "absolute",
-              top: "10%",
+              top: "20%",
               left: "10%",
               transform: "rotate(-15deg)",
             }}
@@ -140,7 +160,7 @@ const Novias = () => {
             className="w-28 h-auto md:w-36 lg:w-48 rounded-xl shadow-xl"
             sx={{
               position: "absolute",
-              top: "20%",
+              top: "30%",
               right: "8%",
               transform: "rotate(10deg)",
             }}
@@ -154,6 +174,7 @@ const Novias = () => {
               position: "absolute",
               bottom: "10%",
               left: "20%",
+              top: "10%",
               transform: "rotate(5deg)",
             }}
           />
@@ -175,14 +196,18 @@ const Novias = () => {
             href="mailto:micrana61@gmail.com"
             sx={{
               position: "absolute",
-              width: { xs: "150px", md: "250px" },
-              height: { xs: "150px", md: "250px" },
-              top: "50%",
+              width: { xs: "200px", md: "300px" },
+              height: { xs: "200px", md: "300px" },
               left: "50%",
               transform: "translate(-50%, -50%)",
               borderRadius: "50%",
               overflow: "hidden",
               boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.3)",
+              top: {
+                xs: "calc(25% + 50px)",
+                sm: "calc(40% + 70px)",
+                md: "calc(15% + 80px)",
+              },
             }}
           >
             <Box
@@ -204,13 +229,13 @@ const Novias = () => {
               top: {
                 xs: "calc(75% + 50px)",
                 sm: "calc(63% + 70px)",
-                md: "calc(70% + 80px)",
-              }, // Ajusta el valor de top según el tamaño de pantalla
+                md: "calc(89% + 80px)",
+              },
               transform: "translateX(-50%)",
               textAlign: "center",
               color: "black",
               textDecoration: "none",
-              fontSize: { xs: "12px", sm: "18px", md: "24px" },
+              fontSize: { xs: "14px", sm: "18px", md: "24px" },
             }}
           >
             <strong>Solicita tu cita</strong>
