@@ -21,13 +21,13 @@ body {
 
 @media (max-width: 768px) {
   .custom-h1 {
-    font-size: 32px; /* Tamaño para pantallas pequeñas */
+    font-size: 38px; /* Tamaño para pantallas pequeñas */
   }
 }
 
 @media (max-width: 480px) {
   .custom-h1 {
-    font-size: 28px; /*Tamaño para pantallas muy pequeñas */
+    font-size: 32px; /*Tamaño para pantallas muy pequeñas */
   }
 }
 
@@ -53,4 +53,9 @@ button {
 
 button:hover {
   background-color: #45a049;
+}
+
+.card-media {
+  height: 237.033;
+  object-fit: cover;
 }
