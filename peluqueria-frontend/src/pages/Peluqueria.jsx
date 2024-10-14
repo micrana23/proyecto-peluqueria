@@ -16,7 +16,7 @@ const Peluqueria = () => {
       description: "Incluye lavado dermocapilar y producto de styling.",
     },
     {
-      title: "Coloración de cabello",
+      title: "Coloración saludable",
       image: "/assets/images/color cabello.webp",
       description:
         "Conseguimos una coloración profesional sin dañar el cabello.",
@@ -36,7 +36,7 @@ const Peluqueria = () => {
         <img
           src="/assets/images/tijeras.jpg"
           alt="Descripción de la imagen"
-          className="w-full h-auto max-h-[600px] object-cover relative z-0"
+          className="w-full h-auto sm:h-[400px] h-[500px] object-cover relative z-0" // Ajustar altura en móviles
         />
 
         {/* Título (h1) fuera de la imagen */}
@@ -48,8 +48,15 @@ const Peluqueria = () => {
 
         {/* Contenido por debajo del título */}
         <div className="relative z-20 flex flex-col items-center justify-center my-2">
-          <h2 className="text-2xl sm:text-xl lg:text-3xl text-black text-center font-playfair mb-8 lg:max-w-4xl max-w-lg">
-            Ofrecemos una amplia gama de servicios de peluquería
+          <h2 className="text-2xl sm:2text-xl lg:text-4xl stext-gray-600 text-center font-playfair mb-8 lg:max-w-4xl max-w-lg relative">
+            Servicios de peluquería
+            <span
+              className="absolute left-0 right-0 mx-auto border-b border-gray-600"
+              style={{
+                top: "120%",
+                width: "100%", // Ajustar la longitud de la línea en pantallas pequeñas
+              }}
+            ></span>
           </h2>
         </div>
 
@@ -59,18 +66,18 @@ const Peluqueria = () => {
             <Grid item xs={12} sm={6} md={3} key={service.title}>
               <div
                 style={{
-                  border: "4px solid white", // Marco blanco
-                  borderRadius: "8px", // Bordes redondeados
-                  overflow: "hidden", // Para que el borde de la imagen sea redondeado
+                  border: "10px solid white",
+                  borderRadius: "8px",
+                  overflow: "hidden",
                 }}
               >
                 <img
                   src={service.image}
                   alt={service.title}
                   style={{
-                    width: "100%", // Imagen llena todo el contenedor
-                    height: "237.033px", // Altura fija
-                    objectFit: "cover", // Mantiene la proporción
+                    width: "100%",
+                    height: "237.033px",
+                    objectFit: "cover",
                   }}
                 />
               </div>
@@ -79,10 +86,10 @@ const Peluqueria = () => {
               <Typography
                 variant="h4"
                 component="h4"
-                align="left" // Alineación a la izquierda
+                align="left"
                 style={{
                   marginTop: "8px",
-                  fontSize: "1.25rem", // Ajustar tamaño
+                  fontSize: "1.25rem",
                 }}
               >
                 {service.title}
@@ -92,11 +99,11 @@ const Peluqueria = () => {
               <Typography
                 variant="body1"
                 component="p"
-                align="left" // Alineación a la izquierda
+                align="left"
                 style={{
                   marginTop: "4px",
                   fontSize: "1rem",
-                  color: "gray", // Estilo de texto más sutil
+                  color: "gray",
                 }}
               >
                 {service.description}
