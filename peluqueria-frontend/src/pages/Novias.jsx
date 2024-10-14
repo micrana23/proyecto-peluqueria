@@ -33,28 +33,15 @@ const Novias = () => {
         <img
           src="/assets/images/novia3.webp"
           alt="Descripción de la imagen"
-          className="w-full h-auto object-cover relative z-0"
+          className="w-full h-auto max-h-[600px] object-cover relative z-0"
         />
 
-        {/* Texto superpuesto */}
-        <Box
-          className="absolute inset-0 flex flex-col items-center justify-start"
-          sx={{
-            top: { xs: "43%", sm: "55%", md: "50%", lg:"55%", xl:"57%"},
-            transform: "translateY(-50%)",
-            zIndex: 10,
-          }}
-        >
-          <Typography
-            variant="h1"
-            className="text-white font-bold shadow-lg font-playfair text-center"
-            sx={{
-              fontSize: { xs: "2rem", sm: "3rem", md: "4rem", lg: "5rem" },
-            }}
-          >
-            Servicio integral de Novias
-          </Typography>
-        </Box>
+        {/* Título (h1) fuera de la imagen */}
+        <div className="relative z-20 flex flex-col items-center justify-center my-8">
+          <h1 className="custom-h1 text-5xl sm:text-4xl lg:text-5xl mt-4">
+            Servicio Integral de Novias
+          </h1>
+        </div>
 
         {/* Contenido por debajo del título */}
         <div className="relative z-20 flex flex-col items-center justify-center my-6 lg:my-12 px-4">
@@ -235,7 +222,7 @@ const Novias = () => {
               textAlign: "center",
               color: "black",
               textDecoration: "none",
-              fontSize: { xs: "14px", sm: "18px", md: "24px" },
+              fontSize: { xs: "22px", sm: "18px", md: "24px" },
             }}
           >
             <strong>Solicita tu cita</strong>
