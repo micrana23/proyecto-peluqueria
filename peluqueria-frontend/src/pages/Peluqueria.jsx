@@ -36,7 +36,7 @@ const Peluqueria = () => {
         <img
           src="/assets/images/tijeras.jpg"
           alt="Descripción de la imagen"
-          className="w-full h-auto sm:h-[400px] h-[500px] object-cover relative z-0" // Ajustar altura en móviles
+          className="w-full h-auto sm:h-[550px] h-[550px] object-cover relative z-0"
         />
 
         {/* Título (h1) fuera de la imagen */}
@@ -48,16 +48,7 @@ const Peluqueria = () => {
 
         {/* Contenido por debajo del título */}
         <div className="relative z-20 flex flex-col items-center justify-center my-2">
-          <h2 className="text-2xl sm:2text-xl lg:text-4xl stext-gray-600 text-center font-playfair mb-8 lg:max-w-4xl max-w-lg relative">
-            Servicios de peluquería
-            <span
-              className="absolute left-0 right-0 mx-auto border-b border-gray-600"
-              style={{
-                top: "120%",
-                width: "100%", // Ajustar la longitud de la línea en pantallas pequeñas
-              }}
-            ></span>
-          </h2>
+          <h2 className="custom-h2">Servicios de peluquería</h2>
         </div>
 
         {/* Servicios con imágenes */}
@@ -100,11 +91,7 @@ const Peluqueria = () => {
                 variant="body1"
                 component="p"
                 align="left"
-                style={{
-                  marginTop: "4px",
-                  fontSize: "1rem",
-                  color: "gray",
-                }}
+                className="peluqueria-text"
               >
                 {service.description}
               </Typography>
@@ -112,7 +99,90 @@ const Peluqueria = () => {
           ))}
         </Grid>
 
-        {/* Contenido adicional (opcional) */}
+        {/* Nuevo h2 con fondo y contenedor */}
+        <div className="bg-gray-100 py-8">
+          <div className="relative z-20 flex flex-col items-center justify-center my-8">
+            <h2 className="custom-h2">Nuestra cultura del color</h2>
+          </div>
+
+          {/* Texto y Foto en columnas */}
+          <div className="flex flex-col lg:flex-row justify-center items-center lg:space-x-4 max-w-6xl mx-auto">
+            {/* Columna de texto */}
+            <div
+              className="lg:w-1/2 w-full p-4"
+              style={{
+                maxWidth: "510.3px",
+                height: "637.017px",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "space-between",
+              }}
+            >
+              <Typography
+                variant="body1"
+                component="p"
+                className="peluqueria-text"
+              >
+                Apostamos por una nueva cultura del color, 100% natural y
+                respetuosa con las personas y con el medioambiente.
+              </Typography>
+
+              <Typography
+                variant="body1"
+                component="p"
+                className="peluqueria-text"
+              >
+                En nuestro salón trabajamos con los Barros y óleos NEO de
+                Secretos del Agua. Hechos a base de productos naturales que no
+                contienen amoniacos, que no dañan el cabello y, además, crean
+                una capa protectora en el pelo. Una mezcla idónea de minerales y
+                extractos de algunas plantas como el Índigo, la Camelia o la
+                Linaza.
+              </Typography>
+
+              <Typography
+                variant="body1"
+                component="p"
+                className="peluqueria-text"
+              >
+                Esta vez no se trata de pigmentos escogidos al azar, sino que
+                están especialmente seleccionados por su afinidad con la
+                queratina del cabello con el objetivo de realizar coloraciones
+                absolutamente personalizadas para cada cabello, y para cualquier
+                gama de color, ya sea en rubios, castaños o cobrizos.
+              </Typography>
+
+              <Typography
+                variant="body1"
+                component="p"
+                className="peluqueria-text"
+              >
+                De esta manera se consiguen colores únicos, teniendo en cuenta
+                el color y estructura natural de su cabello, incluso cuando lo
+                que necesita es aportar fuerza y brillo.
+              </Typography>
+            </div>
+
+            {/* Columna de imagen */}
+            <div
+              className="lg:w-1/2 w-full p-4"
+              style={{ maxWidth: "510.3px", height: "637.017px" }}
+            >
+              <img
+                src="/assets/images/productos pelu.webp"
+                alt="Productos para el cabello"
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                  borderRadius: "8px",
+                }}
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* Contenido adicional */}
         <div className="relative z-20 flex flex-col items-center justify-center my-2">
           <p className="text-black text-center font-playfair mb-2 text-lg max-w-lg">
             ¡Te esperamos para transformar tu look!

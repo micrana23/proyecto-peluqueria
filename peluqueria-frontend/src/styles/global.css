@@ -10,15 +10,15 @@ body {
   padding: 0;
   background-color: #f8f8f8;
 }
-
-.custom-h1 {
-  font-family: "Poppins", Helvetica, Arial, Lucida, sans-serif; /* Fuente personalizada */
-  font-weight: 50; /* Peso de la fuente */
-  font-size: 50px; /* Tamaño de fuente */
-  color: #9e8484;
-  text-align: center; /* Alineación */
+@layer components {
+  custom-h1 {
+    font-family: "Poppins", Helvetica, Arial, Lucida, sans-serif; /* Fuente personalizada */
+    font-weight: 50; /* Peso de la fuente */
+    font-size: 50px; /* Tamaño de fuente */
+    color: #9e8484;
+    text-align: center; /* Alineación */
+  }
 }
-
 @media (max-width: 768px) {
   .custom-h1 {
     font-size: 38px; /* Tamaño para pantallas pequeñas */
@@ -29,6 +29,27 @@ body {
   .custom-h1 {
     font-size: 32px; /*Tamaño para pantallas muy pequeñas */
   }
+}
+@layer components {
+  .custom-h2 {
+    font-family: "Playfair Display", serif;
+    font-size: 1.75rem; /* Ajusta el tamaño para que sea menor que el h1 */
+    font-weight: normal;
+    text-align: center;
+    color: #4a4a4a; /* Color gris */
+    position: relative;
+    margin-bottom: 2rem;
+  }
+}
+
+.custom-h2::after {
+  content: "";
+  position: absolute;
+  bottom: -0.25rem;
+  left: -10%; /* Desbordar un poco */
+  right: -10%; /* Desbordar un poco */
+  height: 1px;
+  background-color: #4a4a4a;
 }
 
 form {
@@ -81,4 +102,16 @@ button:hover {
 .card-media {
   height: 237.033;
   object-fit: cover;
+}
+
+@layer components {
+  .peluqueria-text {
+    @apply text-base leading-6 text-gray-800;
+  }
+
+  .peluqueria-text-extended {
+    text-align: justify;
+    font-size: 1.2rem;
+    line-height: 1.5;
+  }
 }
