@@ -1,8 +1,10 @@
 import React from "react";
 import Layout from "../components/Layout";
-import { Grid, Typography } from "@mui/material";
+import { Grid, Typography, useMediaQuery } from "@mui/material";
 
 const Peluqueria = () => {
+  const isSmallScreen = useMediaQuery("(max-width:599px)");
+
   const services = [
     {
       title: "Cortes de cabello personalizados",
@@ -90,8 +92,12 @@ const Peluqueria = () => {
               <Typography
                 variant="body1"
                 component="p"
-                align="left"
-                className="peluqueria-text"
+                sx={{
+                  fontSize: "1.2rem",
+                  textAlign: "justify",
+                  lineHeight: isSmallScreen ? 1.3 : 1.5, // Ajusta el lineHeight para pantallas pequeñas
+                  marginBottom: "16px", // Separación entre párrafos
+                }}
               >
                 {service.description}
               </Typography>
@@ -100,19 +106,31 @@ const Peluqueria = () => {
         </Grid>
 
         {/* Nuevo h2 con fondo y contenedor */}
-        <div className="bg-gray-100 py-8">
+        <div
+          className="bg-gray-100 py-8"
+          style={{
+            backgroundImage: "url('/assets/images/pintura_blanca.webp')",
+            backgroundSize: "cover", // Hace que la imagen ocupe todo el contenedor
+            backgroundPosition: "center", // Centra la imagen
+            backgroundRepeat: "no-repeat", // Evita que la imagen se repita
+          }}
+        >
           <div className="relative z-20 flex flex-col items-center justify-center my-8">
             <h2 className="custom-h2">Nuestra cultura del color</h2>
           </div>
 
           {/* Texto y Foto en columnas */}
-          <div className="flex flex-col lg:flex-row justify-center items-center lg:space-x-4 max-w-6xl mx-auto">
+          <div
+            className={`flex flex-col ${
+              isSmallScreen ? "space-y-4" : "lg:flex-row lg:space-x-4"
+            } justify-center items-center max-w-6xl mx-auto`}
+          >
             {/* Columna de texto */}
             <div
               className="lg:w-1/2 w-full p-4"
               style={{
-                maxWidth: "510.3px",
-                height: "637.017px",
+                maxWidth: isSmallScreen ? "100%" : "510.3px",
+                height: isSmallScreen ? "auto" : "637.017px",
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "space-between",
@@ -121,7 +139,12 @@ const Peluqueria = () => {
               <Typography
                 variant="body1"
                 component="p"
-                className="peluqueria-text"
+                sx={{
+                  fontSize: "1.2rem",
+                  textAlign: "justify",
+                  lineHeight: isSmallScreen ? 1.3 : 1.5, // Ajuste de lineHeight para pantallas pequeñas
+                  marginBottom: "16px",
+                }}
               >
                 Apostamos por una nueva cultura del color, 100% natural y
                 respetuosa con las personas y con el medioambiente.
@@ -130,7 +153,12 @@ const Peluqueria = () => {
               <Typography
                 variant="body1"
                 component="p"
-                className="peluqueria-text"
+                sx={{
+                  fontSize: "1.2rem",
+                  textAlign: "justify",
+                  lineHeight: isSmallScreen ? 1.3 : 1.5, // Ajuste de lineHeight para pantallas pequeñas
+                  marginBottom: "16px",
+                }}
               >
                 En nuestro salón trabajamos con los Barros y óleos NEO de
                 Secretos del Agua. Hechos a base de productos naturales que no
@@ -143,7 +171,12 @@ const Peluqueria = () => {
               <Typography
                 variant="body1"
                 component="p"
-                className="peluqueria-text"
+                sx={{
+                  fontSize: "1.2rem",
+                  textAlign: "justify",
+                  lineHeight: isSmallScreen ? 1.3 : 1.5,
+                  marginBottom: "16px",
+                }}
               >
                 Esta vez no se trata de pigmentos escogidos al azar, sino que
                 están especialmente seleccionados por su afinidad con la
@@ -155,7 +188,12 @@ const Peluqueria = () => {
               <Typography
                 variant="body1"
                 component="p"
-                className="peluqueria-text"
+                sx={{
+                  fontSize: "1.2rem",
+                  textAlign: "justify",
+                  lineHeight: isSmallScreen ? 1.3 : 1.5,
+                  marginBottom: "16px",
+                }}
               >
                 De esta manera se consiguen colores únicos, teniendo en cuenta
                 el color y estructura natural de su cabello, incluso cuando lo
@@ -166,14 +204,17 @@ const Peluqueria = () => {
             {/* Columna de imagen */}
             <div
               className="lg:w-1/2 w-full p-4"
-              style={{ maxWidth: "510.3px", height: "637.017px" }}
+              style={{
+                maxWidth: isSmallScreen ? "100%" : "510.3px",
+                height: isSmallScreen ? "auto" : "637.017px",
+              }}
             >
               <img
                 src="/assets/images/productos pelu.webp"
                 alt="Productos para el cabello"
                 style={{
                   width: "100%",
-                  height: "100%",
+                  height: isSmallScreen ? "auto" : "100%",
                   objectFit: "cover",
                   borderRadius: "8px",
                 }}
