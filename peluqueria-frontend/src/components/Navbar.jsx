@@ -20,9 +20,9 @@ function Navbar({ isNovias }) {
 
   return (
     <nav className="flex">
-      <ul className="flex space-x-4 list-none">
+      <ul className="flex space-x-8 list-none">
         <li>
-          <Link to="/" className={`${textColorClass} hover:text-gray-400`}>
+          <Link to="/" className={`${textColorClass} text-2xl font-bold hover:text-gray-400`}>
             Home
           </Link>
         </li>
@@ -32,7 +32,7 @@ function Navbar({ isNovias }) {
           onMouseLeave={handleMouseLeave}
           className="relative"
         >
-          <span className={`${textColorClass} cursor-pointer hover:text-gray-400`}>
+          <span className={`${textColorClass} cursor-pointer text-2xl font-bold hover:text-gray-400`}>
             Servicios
           </span>
 
@@ -57,7 +57,7 @@ function Navbar({ isNovias }) {
         </li>
 
         <li>
-          <Link to="/contacto" className={`${textColorClass} hover:text-gray-400`}>
+          <Link to="/contacto" className={`${textColorClass} text-2xl font-bold hover:text-gray-400`}>
             Contacto
           </Link>
         </li>

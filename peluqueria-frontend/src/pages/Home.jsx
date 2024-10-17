@@ -6,23 +6,16 @@ const Home = () => {
   return (
     <Layout>
       {/* Contenedor de fondo con la imagen */}
-      <div
-        className="relative flex flex-col items-center justify-center w-full min-h-screen bg-cover bg-center"
-        style={{
-          backgroundImage: "url('/assets/images/fondo verde.webp')", // Corregido
-        }}
-      >
-        {/* Imagen centrada encima del fondo, ahora redonda */}
-        <img
-          src="/assets/images/logo portada.png" // Corregido
-          alt="Imagen centrada"
-          className="absolute w-40 h-40 sm:w-44 sm:h-44 md:w-64 md:h-64 lg:w-72 lg:h-72 z-10 rounded-full object-cover"
-          style={{
-            top: "30%",
-            left: "50%",
-            transform: "translate(-50%, -30%)",
-          }}
-        />
+      <div className="relative flex flex-col items-center justify-center w-full min-h-screen">
+        <video
+          autoPlay
+          loop
+          muted
+          className="absolute top-0 left-0 w-full h-full object-cover"
+        >
+          <source src="/assets/images/video peinando.mp4" type="video/mp4" />
+          Tu navegador no soporta la etiqueta de video.
+        </video>
 
         {/* Frase justo debajo del logo */}
         <h1 className="custom-h1 text-white z-20 mt-2 md:mt-12 lg:mt-32 text-center">
