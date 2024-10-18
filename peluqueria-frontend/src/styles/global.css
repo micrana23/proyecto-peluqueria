@@ -51,6 +51,7 @@ section {
   width: 900px;
   height: 450px;
   margin: 0 auto;
+  margin-bottom: 70px; /* Ajusta el valor según sea necesario */
 }
 
 section img {
