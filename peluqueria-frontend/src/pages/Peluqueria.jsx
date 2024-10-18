@@ -1,10 +1,10 @@
 import React from "react";
 import Layout from "../components/Layout";
 import { Grid, Typography, useMediaQuery } from "@mui/material";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Carousel } from "react-responsive-carousel";
 
 const Peluqueria = () => {
-  const isSmallScreen = useMediaQuery("(max-width:599px)");
-
   const services = [
     {
       title: "Cortes de cabello personalizados",
@@ -30,6 +30,18 @@ const Peluqueria = () => {
         "Gran gama de tratamientos para mimar cada tipo de cabello tanto en el salón como para casa.",
     },
   ];
+
+  const images = [
+    "/assets/images/rubia2.jpg",
+    "/assets/images/reflejos.jpg",
+    "/assets/images/pelirroja.jpg",
+    "/assets/images/mechas.jpg",
+    "/assets/images/modelomechas.jpg",
+    "/assets/images/castañarizado.jpg",
+  ];
+
+  // Consulta para pantallas móviles
+  const isMobile = useMediaQuery("(max-width: 599px)");
 
   return (
     <Layout>
@@ -92,11 +104,16 @@ const Peluqueria = () => {
               <Typography
                 variant="body1"
                 component="p"
+                align="left"
+                className="peluqueria-text"
                 sx={{
-                  fontSize: "1.2rem",
                   textAlign: "justify",
-                  lineHeight: isSmallScreen ? 1.3 : 1.5, // Ajusta el lineHeight para pantallas pequeñas
-                  marginBottom: "16px", // Separación entre párrafos
+                  marginTop: "8px",
+                  lineHeight: 1.7,
+                  "@media (max-width: 599px)": {
+                    marginBottom: "16px",
+                    lineHeight: 1.4,
+                  },
                 }}
               >
                 {service.description}
@@ -107,12 +124,9 @@ const Peluqueria = () => {
 
         {/* Nuevo h2 con fondo y contenedor */}
         <div
-          className="bg-gray-100 py-8"
+          className="bg-cover bg-center py-8"
           style={{
-            backgroundImage: "url('/assets/images/pintura_blanca.webp')",
-            backgroundSize: "cover", // Hace que la imagen ocupe todo el contenedor
-            backgroundPosition: "center", // Centra la imagen
-            backgroundRepeat: "no-repeat", // Evita que la imagen se repita
+            backgroundImage: `url('/assets/images/pintura_blanca.webp')`,
           }}
         >
           <div className="relative z-20 flex flex-col items-center justify-center my-8">
@@ -120,17 +134,13 @@ const Peluqueria = () => {
           </div>
 
           {/* Texto y Foto en columnas */}
-          <div
-            className={`flex flex-col ${
-              isSmallScreen ? "space-y-4" : "lg:flex-row lg:space-x-4"
-            } justify-center items-center max-w-6xl mx-auto`}
-          >
+          <div className="flex flex-col lg:flex-row justify-center items-center lg:space-x-4 max-w-6xl mx-auto">
             {/* Columna de texto */}
             <div
               className="lg:w-1/2 w-full p-4"
               style={{
-                maxWidth: isSmallScreen ? "100%" : "510.3px",
-                height: isSmallScreen ? "auto" : "637.017px",
+                maxWidth: "510.3px",
+                height: "637.017px",
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "space-between",
@@ -139,11 +149,14 @@ const Peluqueria = () => {
               <Typography
                 variant="body1"
                 component="p"
+                className="peluqueria-text"
                 sx={{
-                  fontSize: "1.2rem",
                   textAlign: "justify",
-                  lineHeight: isSmallScreen ? 1.3 : 1.5, // Ajuste de lineHeight para pantallas pequeñas
-                  marginBottom: "16px",
+                  lineHeight: 1.7,
+                  "@media (max-width: 599px)": {
+                    marginBottom: "16px",
+                    lineHeight: 1.4,
+                  },
                 }}
               >
                 Apostamos por una nueva cultura del color, 100% natural y
@@ -153,29 +166,33 @@ const Peluqueria = () => {
               <Typography
                 variant="body1"
                 component="p"
+                className="peluqueria-text"
                 sx={{
-                  fontSize: "1.2rem",
                   textAlign: "justify",
-                  lineHeight: isSmallScreen ? 1.3 : 1.5, // Ajuste de lineHeight para pantallas pequeñas
-                  marginBottom: "16px",
+                  lineHeight: 1.7,
+                  "@media (max-width: 599px)": {
+                    marginBottom: "16px",
+                    lineHeight: 1.4,
+                  },
                 }}
               >
                 En nuestro salón trabajamos con los Barros y óleos NEO de
                 Secretos del Agua. Hechos a base de productos naturales que no
                 contienen amoniacos, que no dañan el cabello y, además, crean
-                una capa protectora en el pelo. Una mezcla idónea de minerales y
-                extractos de algunas plantas como el Índigo, la Camelia o la
-                Linaza.
+                una capa protectora en el pelo.
               </Typography>
 
               <Typography
                 variant="body1"
                 component="p"
+                className="peluqueria-text"
                 sx={{
-                  fontSize: "1.2rem",
                   textAlign: "justify",
-                  lineHeight: isSmallScreen ? 1.3 : 1.5,
-                  marginBottom: "16px",
+                  lineHeight: 1.7,
+                  "@media (max-width: 599px)": {
+                    marginBottom: "16px",
+                    lineHeight: 1.4,
+                  },
                 }}
               >
                 Esta vez no se trata de pigmentos escogidos al azar, sino que
@@ -188,11 +205,14 @@ const Peluqueria = () => {
               <Typography
                 variant="body1"
                 component="p"
+                className="peluqueria-text"
                 sx={{
-                  fontSize: "1.2rem",
                   textAlign: "justify",
-                  lineHeight: isSmallScreen ? 1.3 : 1.5,
-                  marginBottom: "16px",
+                  lineHeight: 1.7,
+                  "@media (max-width: 599px)": {
+                    marginBottom: "16px",
+                    lineHeight: 1.4,
+                  },
                 }}
               >
                 De esta manera se consiguen colores únicos, teniendo en cuenta
@@ -204,17 +224,14 @@ const Peluqueria = () => {
             {/* Columna de imagen */}
             <div
               className="lg:w-1/2 w-full p-4"
-              style={{
-                maxWidth: isSmallScreen ? "100%" : "510.3px",
-                height: isSmallScreen ? "auto" : "637.017px",
-              }}
+              style={{ maxWidth: "510.3px", height: "637.017px" }}
             >
               <img
                 src="/assets/images/productos pelu.webp"
                 alt="Productos para el cabello"
                 style={{
                   width: "100%",
-                  height: isSmallScreen ? "auto" : "100%",
+                  height: "100%",
                   objectFit: "cover",
                   borderRadius: "8px",
                 }}
@@ -223,11 +240,68 @@ const Peluqueria = () => {
           </div>
         </div>
 
-        {/* Contenido adicional */}
-        <div className="relative z-20 flex flex-col items-center justify-center my-2">
-          <p className="text-black text-center font-playfair mb-2 text-lg max-w-lg">
-            ¡Te esperamos para transformar tu look!
-          </p>
+        {/* Nuevo contenedor con el h2 y carrusel */}
+        <div className="bg-white py-8">
+          {/* H2 centrado */}
+          <div className="relative z-20 flex flex-col items-center justify-center my-8">
+            <h2 className="custom-h2">Trabajos en coloración</h2>
+          </div>
+
+          {/* Carrusel para pantallas medianas y grandes */}
+          {!isMobile && (
+            <div className="relative z-20 flex justify-center items-center max-w-6xl mx-auto">
+              <Carousel
+                showArrows
+                infiniteLoop
+                showThumbs={false} // Oculta las miniaturas
+                showStatus={false} // Oculta el estado
+                centerMode
+                centerSlidePercentage={33.33} // Muestra 3 fotos al inicio
+                dynamicHeight={false}
+                emulateTouch
+              >
+                {images.map((image, index) => (
+                  <div
+                    key={index}
+                    style={{
+                      padding: "0 5px", // Espacio entre las imagenes
+                    }}
+                  >
+                    <img
+                      src={image}
+                      alt={`Trabajo en coloración ${index + 1}`}
+                      style={{
+                        height: "460px", // Mantiene la altura de 460px
+                        objectFit: "cover",
+                        display: "block",
+                        margin: "0 5px", // Centra la imagen en el slide
+                        width: "100%", // Asegura que la imagen ocupe el 100% del slide
+                      }}
+                    />
+                  </div>
+                ))}
+              </Carousel>
+            </div>
+          )}
+
+          {/* Imágenes apiladas para pantallas móviles */}
+          {isMobile && (
+            <div className="grid grid-cols-1 gap-4 max-w-6xl mx-auto">
+              {images.map((image, index) => (
+                <div key={index} className="flex justify-center">
+                  <img
+                    src={image}
+                    alt={`Trabajo en coloración ${index + 1}`}
+                    style={{
+                      width: "50%",
+                      height: "320px",
+                      objectFit: "cover",
+                    }}
+                  />
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </Layout>
