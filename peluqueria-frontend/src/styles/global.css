@@ -46,12 +46,13 @@ form {
   flex-direction: column;
 }
 
+/* Estilos para pantallas grandes (PC) */
 section {
   display: flex;
-  width: 900px;
+  max-width: 100%; /* Para que el contenedor ocupe el ancho completo en pantallas grandes */
   height: 450px;
   margin: 0 auto;
-  margin-bottom: 70px; /* Ajusta el valor según sea necesario */
+  margin-bottom: 70px;
 }
 
 section img {
@@ -59,7 +60,7 @@ section img {
   flex-grow: 1;
   object-fit: cover;
   opacity: 0.8;
-  transition: 0.5s ease;
+  transition: width 0.5s ease, opacity 0.5s ease;
 }
 
 section img:hover {
@@ -67,6 +68,36 @@ section img:hover {
   width: 300px;
   opacity: 1;
   filter: contrast(120%);
+}
+
+/* Estilos para pantallas medianas (tabletas) */
+@media (max-width: 1024px) {
+  section {
+    height: 300px; /* Reduce la altura en pantallas más pequeñas */
+  }
+  
+  section img:hover {
+    width: 200px; /* Ajusta el tamaño de las imágenes al hacer hover */
+  }
+}
+
+/* Estilos para pantallas pequeñas (móviles) */
+@media (max-width: 640px) {
+  section {
+    display: block; /* Cambia la disposición a una columna */
+    width: 100%;
+    height: auto; /* Deja que la altura se ajuste automáticamente */
+  }
+
+  section img {
+    width: 100%; /* Las imágenes ocupan todo el ancho */
+    flex-grow: 0;
+    margin-bottom: 10px; /* Añade espacio entre las imágenes */
+  }
+
+  section img:hover {
+    width: 100%; /* Mantiene las imágenes a su tamaño completo */
+  }
 }
 
 input,
