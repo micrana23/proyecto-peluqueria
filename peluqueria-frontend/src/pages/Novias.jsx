@@ -62,7 +62,7 @@ const Novias = () => {
         </div>
 
         {/* Carrusel de imágenes */}
-        <div className="relative z-20 flex flex-col md:flex-row items-center justify-center bg-yellow-100 py-6 lg:py-10 my-8 lg:my-12">
+        <div className="relative z-20 flex flex-col md:flex-row items-center justify-center bg-[url('/assets/images/pared_rosa.webp')] bg-cover md:bg-contain bg-center py-6 lg:py-10 my-8 lg:my-12">
           <div className="flex-1 flex items-center justify-center">
             <IconButton onClick={prevImage} aria-label="Previous">
               <ArrowBackIcon />
