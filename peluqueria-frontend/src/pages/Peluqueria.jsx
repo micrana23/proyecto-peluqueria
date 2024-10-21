@@ -52,21 +52,23 @@ const Peluqueria = () => {
           alt="Descripción de la imagen"
           className="w-full h-auto sm:h-[550px] h-[550px] object-cover relative z-0"
         />
-
         {/* Título (h1) fuera de la imagen */}
         <div className="relative z-20 flex flex-col items-center justify-center my-8">
-          <h1 className="custom-h1 text-6xl sm:text-5xl lg:text-6xl mt-4">
+          <h1 className="custom-h1 text-6xl sm:text-5xl lg:text-5xl mt-16">
             Peluquería Biosaludable
           </h1>
         </div>
-
         {/* Contenido por debajo del título */}
         <div className="relative z-20 flex flex-col items-center justify-center my-2">
           <h2 className="custom-h2">Servicios de peluquería</h2>
         </div>
-
         {/* Servicios con imágenes */}
-        <Grid container spacing={4} className="relative z-20 my-8 px-4">
+        <Grid
+          container
+          spacing={4}
+          className="relative z-20 my-8 px-4"
+          style={{ marginBottom: "130px" }}
+        >
           {services.map((service) => (
             <Grid item xs={12} sm={6} md={3} key={service.title}>
               <div
@@ -94,7 +96,9 @@ const Peluqueria = () => {
                 align="left"
                 style={{
                   marginTop: "8px",
-                  fontSize: "1.25rem",
+                  fontSize: "1.20rem",
+                  fontWeight: "bold",
+                  color: "#523253",
                 }}
               >
                 {service.title}
@@ -104,15 +108,13 @@ const Peluqueria = () => {
               <Typography
                 variant="body1"
                 component="p"
-                align="left"
                 className="peluqueria-text"
                 sx={{
                   textAlign: "justify",
-                  marginTop: "8px",
                   lineHeight: 1.7,
-                  "@media (max-width: 599px)": {
-                    marginBottom: "16px",
-                    lineHeight: 1.4,
+                  marginBottom: "24px", // Mantiene una separación adecuada para pantallas móviles
+                  "@media (min-width: 600px)": {
+                    marginBottom: "12px", // Reduce la separación para pantallas medianas y grandes
                   },
                 }}
               >
@@ -121,7 +123,6 @@ const Peluqueria = () => {
             </Grid>
           ))}
         </Grid>
-
         {/* Nuevo h2 con fondo y contenedor */}
         <div
           className="bg-cover bg-center py-8"
@@ -149,15 +150,7 @@ const Peluqueria = () => {
               <Typography
                 variant="body1"
                 component="p"
-                className="peluqueria-text"
-                sx={{
-                  textAlign: "justify",
-                  lineHeight: 1.7,
-                  "@media (max-width: 599px)": {
-                    marginBottom: "16px",
-                    lineHeight: 1.4,
-                  },
-                }}
+                className="section peluqueria-text"
               >
                 Apostamos por una nueva cultura del color, 100% natural y
                 respetuosa con las personas y con el medioambiente.
@@ -167,14 +160,6 @@ const Peluqueria = () => {
                 variant="body1"
                 component="p"
                 className="peluqueria-text"
-                sx={{
-                  textAlign: "justify",
-                  lineHeight: 1.7,
-                  "@media (max-width: 599px)": {
-                    marginBottom: "16px",
-                    lineHeight: 1.4,
-                  },
-                }}
               >
                 En nuestro salón trabajamos con los Barros y óleos NEO de
                 Secretos del Agua. Hechos a base de productos naturales que no
@@ -186,14 +171,6 @@ const Peluqueria = () => {
                 variant="body1"
                 component="p"
                 className="peluqueria-text"
-                sx={{
-                  textAlign: "justify",
-                  lineHeight: 1.7,
-                  "@media (max-width: 599px)": {
-                    marginBottom: "16px",
-                    lineHeight: 1.4,
-                  },
-                }}
               >
                 Esta vez no se trata de pigmentos escogidos al azar, sino que
                 están especialmente seleccionados por su afinidad con la
@@ -206,14 +183,6 @@ const Peluqueria = () => {
                 variant="body1"
                 component="p"
                 className="peluqueria-text"
-                sx={{
-                  textAlign: "justify",
-                  lineHeight: 1.7,
-                  "@media (max-width: 599px)": {
-                    marginBottom: "16px",
-                    lineHeight: 1.4,
-                  },
-                }}
               >
                 De esta manera se consiguen colores únicos, teniendo en cuenta
                 el color y estructura natural de su cabello, incluso cuando lo
@@ -239,7 +208,6 @@ const Peluqueria = () => {
             </div>
           </div>
         </div>
-
         {/* Nuevo contenedor con el h2 y carrusel */}
         <div className="bg-white py-8">
           {/* H2 centrado */}
@@ -303,6 +271,8 @@ const Peluqueria = () => {
             </div>
           )}
         </div>
+        <div className="mb-14" />
+        {/*Este div añade mas margen debajo del carrousel*/}
       </div>
     </Layout>
   );
