@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 
 const Layout = ({ children }) => {
   return (
-    <div className="flex flex-col w-full min-h-screen bg-gray-100">
+    <div className="flex flex-col w-full min-h-screen bg-white-100">
       <Header />
       <main className="flex-grow">{children}</main>
       <footer className="relative p-4 md:p-8 bg-gradient-to-r from-[#f4c0b6] to-[#f0a9a0] text-white shadow-md">

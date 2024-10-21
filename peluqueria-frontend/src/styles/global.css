@@ -91,3 +91,10 @@ button:hover {
   height: 237.033px; /* Se añadió px */
   object-fit: cover;
 }
+
+.peluqueria-texto {
+  text-align: justify;
+  font-size: 1.5rem;
+  line-height: 1.3; /* Ajusta el valor según tus preferencias */
+  margin-bottom: 0.8rem;
+}
