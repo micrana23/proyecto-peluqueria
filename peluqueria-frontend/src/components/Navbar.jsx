@@ -1,137 +1,174 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { Menu, MenuItem, IconButton } from '@mui/material';
-import { Menu as MenuIcon } from '@mui/icons-material';
-import PropTypes from 'prop-types';
+import React, { useState, useRef } from "react";
+import { Link } from "react-router-dom";
+import { IconButton } from "@mui/material";
+import { Menu as MenuIcon } from "@mui/icons-material";
+import ContentCutIcon from "@mui/icons-material/ContentCut"; 
+import PropTypes from "prop-types";
+import FemaleOutlinedIcon from "@mui/icons-material/FemaleOutlined";
+import BackHandOutlinedIcon from '@mui/icons-material/BackHandOutlined';
 
 function Navbar({ isNovias }) {
-  const [anchorEl, setAnchorEl] = useState(null);
-  const [menuOpen, setMenuOpen] = useState(false);
   const [subMenuOpen, setSubMenuOpen] = useState(false);
-  const [subMenuTimeout, setSubMenuTimeout] = useState(null); // Para controlar el timeout
+  const [smallScreenSubMenuOpen, setSmallScreenSubMenuOpen] = useState(false); 
+  const timeoutRef = useRef(null);
 
-  // Abrir menú hamburguesa
-  const handleMenuOpen = (event) => {
-    setAnchorEl(event.currentTarget);
-    setMenuOpen(true);
+  const handleMouseEnter = () => {
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    setSubMenuOpen(true);
   };
 
-  // Cerrar menú hamburguesa
-  const handleMenuClose = () => {
-    setAnchorEl(null);
-    setMenuOpen(false);
-    setSubMenuOpen(false);
-    clearTimeout(subMenuTimeout); // Limpiar timeout si el menú principal se cierra
+  const handleMouseLeave = () => {
+    timeoutRef.current = setTimeout(() => {
+      setSubMenuOpen(false);
+    }, 300);
   };
 
-  // Abrir submenú con retardo
-  const handleSubMenuOpen = () => {
-    const timeout = setTimeout(() => {
-      setSubMenuOpen(true);
-    }, 500); // Esperar 500 ms antes de abrir el submenú
-    setSubMenuTimeout(timeout); // Guardar el timeout para poder cancelarlo
-  };
-
-  // Cerrar submenú y limpiar timeout
-  const handleSubMenuClose = () => {
-    clearTimeout(subMenuTimeout); // Cancelar el timeout si el ratón sale antes del tiempo
-    setSubMenuOpen(false);
-  };
-
-  const textColorClass = isNovias ? 'text-white' : 'text-white'; // Siempre blanco en este caso
+  const textColorClass = isNovias ? "text-white" : "text-white";
 
   return (
     <nav className="flex justify-between items-center p-4">
-      {/* Título visible solo en pantallas pequeñas */}
-      <div className="md:hidden text-white text-2xl font-bold">Xtylo Peluquería</div>
+      <div className="md:hidden text-white text-2xl font-bold">
+        Xtylo Peluquería
+      </div>
 
-      {/* Menú de navegación para pantallas grandes */}
       <ul className="hidden md:flex space-x-8 list-none flex-grow justify-end">
         <li>
-          <Link to="/" className={`${textColorClass} text-2xl font-bold hover:text-gray-400`}>
+          <Link
+            to="/"
+            className={`${textColorClass} text-2xl font-bold hover:text-gray-400`}
+          >
             Home
           </Link>
         </li>
         <li
           className="relative"
-          onMouseEnter={handleSubMenuOpen}
-          onMouseLeave={handleSubMenuClose}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
         >
-          <span className={`${textColorClass} cursor-pointer text-2xl font-bold hover:text-gray-400`}>
+          <span
+            className={`${textColorClass} cursor-pointer text-2xl font-bold hover:text-gray-400`}
+          >
             Servicios
           </span>
-          <Menu
-            anchorEl={anchorEl}
-            open={subMenuOpen}
-            onClose={handleSubMenuClose}
-            MenuListProps={{
-              onMouseLeave: handleSubMenuClose,
-            }}
-          >
-            <MenuItem component={Link} to="/servicios/peluqueria" onClick={handleMenuClose} className="text-black">
-              Peluquería
-            </MenuItem>
-            <MenuItem component={Link} to="/servicios/novias" onClick={handleMenuClose} className="text-black">
-              Novias
-            </MenuItem>
-            <MenuItem component={Link} to="/servicios/unas" onClick={handleMenuClose} className="text-black">
-              Uñas
-            </MenuItem>
-          </Menu>
+          {subMenuOpen && (
+            <ul className="absolute left-0 bg-white shadow-md mt-2 rounded-lg z-10 w-40">
+              <li className="flex items-center">
+                <ContentCutIcon color="black" className="mr-2" />
+                <Link
+                  to="/servicios/peluqueria"
+                  className="block px-4 py-2 text-black hover:bg-gray-200"
+                >
+                  Peluquería
+                </Link>
+              </li>
+              <li className="flex items-center">
+                <FemaleOutlinedIcon color="black" className="mr-2" />
+                <Link
+                  to="/servicios/novias"
+                  className="block px-4 py-2 text-black hover:bg-gray-200"
+                >
+                  Novias
+                </Link>
+              </li>
+              <li className="flex items-center">
+                <BackHandOutlinedIcon color="black" className="mr-2" />
+                <Link
+                  to="/servicios/unas"
+                  className="block px-4 py-2 text-black hover:bg-gray-200"
+                >
+                  Uñas
+                </Link>
+              </li>
+            </ul>
+          )}
         </li>
         <li>
-          <Link to="/contacto" className={`${textColorClass} text-2xl font-bold hover:text-gray-400`}>
+          <Link
+            to="/contacto"
+            className={`${textColorClass} text-2xl font-bold hover:text-gray-400`}
+          >
             Contacto
           </Link>
         </li>
       </ul>
 
-      {/* Menú hamburguesa solo visible en pantallas pequeñas */}
       <div className="md:hidden">
         <IconButton
           edge="end"
           color="inherit"
           aria-label="menu"
-          onClick={handleMenuOpen}
+          onClick={() => setSubMenuOpen(!subMenuOpen)}
         >
           <MenuIcon />
         </IconButton>
-        <Menu
-          anchorEl={anchorEl}
-          open={menuOpen}
-          onClose={handleMenuClose}
-          onMouseLeave={handleMenuClose} // Cerrar al salir del menú
-        >
-          <MenuItem component={Link} to="/" onClick={handleMenuClose} className="text-black">
-            Home
-          </MenuItem>
-          <MenuItem
-            onMouseEnter={handleSubMenuOpen}
-            onMouseLeave={handleSubMenuClose}
-            className="text-black"
-          >
-            Servicios
-            <Menu
-              anchorEl={anchorEl}
-              open={subMenuOpen}
-              onClose={handleSubMenuClose}
-              onMouseLeave={handleSubMenuClose}
-            >
-              <MenuItem component={Link} to="/servicios/peluqueria" onClick={handleMenuClose} className="text-black">
-                Peluquería
-              </MenuItem>
-              <MenuItem component={Link} to="/servicios/novias" onClick={handleMenuClose} className="text-black">
-                Novias
-              </MenuItem>
-              <MenuItem component={Link} to="/servicios/unas" onClick={handleMenuClose} className="text-black">
-                Uñas
-              </MenuItem>
-            </Menu>
-          </MenuItem>
-          <MenuItem component={Link} to="/contacto" onClick={handleMenuClose} className="text-black">
-            Contacto
-          </MenuItem>
-        </Menu>
+        {subMenuOpen && (
+          <div className="absolute right-0 bg-white shadow-md rounded-lg">
+            <ul className="z-10 w-40">
+              <li>
+                <Link
+                  to="/"
+                  className="block px-4 py-2 text-black hover:bg-gray-200"
+                  onClick={() => setSubMenuOpen(false)}
+                >
+                  Home
+                </Link>
+              </li>
+              <li>
+                <span
+                  className="block px-4 py-2 text-black cursor-pointer hover:bg-gray-200"
+                  onClick={() =>
+                    setSmallScreenSubMenuOpen(!smallScreenSubMenuOpen)
+                  }
+                >
+                  Servicios
+                </span>
+                {smallScreenSubMenuOpen && (
+                  <ul className="bg-white shadow-md mt-2 rounded-lg">
+                    <li className="flex items-center">
+                      <ContentCutIcon className="mr-2" />
+                      <Link
+                        to="/servicios/peluqueria"
+                        className="block px-4 py-2 text-black hover:bg-gray-200"
+                        onClick={() => setSubMenuOpen(false)}
+                      >
+                        Peluquería
+                      </Link>
+                    </li>
+                    <li className="flex items-center">
+                      <FemaleOutlinedIcon className="mr-2" />
+                      <Link
+                        to="/servicios/novias"
+                        className="block px-4 py-2 text-black hover:bg-gray-200"
+                        onClick={() => setSubMenuOpen(false)}
+                      >
+                        Novias
+                      </Link>
+                    </li>
+                    <li className="flex items-center">
+                      <BackHandOutlinedIcon className="mr-2" />
+                      <Link
+                        to="/servicios/unas"
+                        className="block px-4 py-2 text-black hover:bg-gray-200"
+                        onClick={() => setSubMenuOpen(false)}
+                      >
+                        Uñas
+                      </Link>
+                    </li>
+                  </ul>
+                )}
+              </li>
+              <li>
+                <Link
+                  to="/contacto"
+                  className="block px-4 py-2 text-black hover:bg-gray-200"
+                  onClick={() => setSubMenuOpen(false)}
+                >
+                  Contacto
+                </Link>
+              </li>
+            </ul>
+          </div>
+        )}
       </div>
     </nav>
   );
