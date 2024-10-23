@@ -97,7 +97,7 @@ const Xtylotext = () => {
         >
           En Xtylo, la pureza es la base sobre la cual definimos la belleza.
         </Typography>
-
+{/* 
         <Typography
           variant="body1"
           sx={{
@@ -108,7 +108,7 @@ const Xtylotext = () => {
         >
           Nos destacamos como el equilibrio perfecto entre tu bienestar y lo que
           te hace único: tu forma de percibir el mundo.
-        </Typography>
+        </Typography> */}
 
         {/* Utilizamos Box en lugar de Grid */}
         <Box

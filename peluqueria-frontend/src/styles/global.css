@@ -123,3 +123,37 @@ button:hover {
   height: 237.033px; /* Se añadió px */
   object-fit: cover;
 }
+
+/* Para el submenú en pantallas pequeñas */
+@media (max-width: 768px) {
+  .sub-menu {
+    position: relative;
+    background-color: white;
+    padding: 8px;
+    border-radius: 8px;
+  }
+
+  .sub-menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .sub-menu li {
+    padding: 8px 16px;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .sub-menu li:last-child {
+    border-bottom: none;
+  }
+
+  .sub-menu a {
+    text-decoration: none;
+    color: black;
+  }
+}
+
+svg {
+  fill: black !important; /* Asegura que todos los iconos sean negros */
+}
