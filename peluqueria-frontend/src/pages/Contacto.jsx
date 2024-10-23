@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Layout from "../components/Layout";
 import { Link } from "react-router-dom";
+import { Phone, LocationOn, AccessTime } from "@mui/icons-material"; // Importamos los iconos desde Material UI
 
 const Contacto = () => {
   const [formData, setFormData] = useState({
@@ -70,10 +71,51 @@ const Contacto = () => {
   return (
     <Layout>
       <div className="flex flex-col items-center justify-center min-h-screen bg-violet-100">
-        <h1 className="font-poppins font-light text-xl md:text-3xl lg:text-4xl text-black text-center underline mb-5">
-          ¿Tienes alguna duda?, ¡Escríbenos!
+        <h1 className="custom-h2 mt-12 md:mt-16 mb-8 text-center">
+          Contáctanos
         </h1>
 
+        <div className="w-full max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 p-4 bg-vilotet-100 rounded-lg mb-8">
+          {/* Teléfono */}
+          <div className="flex flex-col items-center justify-center w-[399.8px] h-[157.6px] rounded-lg">
+            <Phone className="text-pink-500" style={{ fontSize: "40px" }} />
+            <div className="text-center mt-2">
+              <p className="text-lg font-semibold">Teléfono</p>
+              <p>918987654 / 665769021</p>
+            </div>
+          </div>
+
+          {/* Dirección */}
+          <div className="flex flex-col items-center justify-center w-[399.8px] h-[157.6px] rounded-lg">
+            <LocationOn
+              className="text-pink-500"
+              style={{ fontSize: "40px" }}
+            />
+            <div className="text-center mt-2">
+              <p className="text-lg font-semibold">Dirección</p>
+              <p>C/Añastro, Madrid</p>
+            </div>
+          </div>
+
+          {/* Horario */}
+          <div className="flex flex-col items-center justify-center w-[399.8px] h-[157.6px] rounded-lg">
+            <AccessTime
+              className="text-pink-500"
+              style={{ fontSize: "40px" }}
+            />
+            <div className="text-center mt-2">
+              <p className="text-lg font-semibold">Horario</p>
+              <p>
+                De lunes a Viernes 09:30h a 18:30h <br />
+                Sábados 09:00h a 14:30h <br />
+                Domingos Cerrado
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Aquí está el formulario */}
+        <h2 className="custom-h2 mb-4">¿Tienes alguna duda?, ¡Escríbenos!</h2>
         <form
           onSubmit={handleSubmit}
           className="flex flex-col w-full max-w-5xl mx-auto p-4 bg-white shadow-md rounded-lg"

@@ -145,12 +145,21 @@ const Peluqueria = () => {
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "space-between",
+                fontStyle: "italic",
               }}
             >
               <Typography
                 variant="body1"
                 component="p"
-                className="section peluqueria-text"
+                sx={{
+                  textAlign: "justify",
+                  lineHeight: 1.7,
+                  marginBottom: "24px", // Para pantallas móviles
+                  "@media (min-width: 600px)": {
+                    fontSize: "1.1rem",
+                    marginBottom: "2px", // Menor separación para pantallas medianas y grandes
+                  },
+                }}
               >
                 Apostamos por una nueva cultura del color, 100% natural y
                 respetuosa con las personas y con el medioambiente.
@@ -159,7 +168,15 @@ const Peluqueria = () => {
               <Typography
                 variant="body1"
                 component="p"
-                className="peluqueria-text"
+                sx={{
+                  textAlign: "justify",
+                  lineHeight: 1.7,
+                  marginBottom: "24px",
+                  "@media (min-width: 600px)": {
+                    fontSize: "1.1rem",
+                    marginBottom: "2px",
+                  },
+                }}
               >
                 En nuestro salón trabajamos con los Barros y óleos NEO de
                 Secretos del Agua. Hechos a base de productos naturales que no
@@ -170,7 +187,15 @@ const Peluqueria = () => {
               <Typography
                 variant="body1"
                 component="p"
-                className="peluqueria-text"
+                sx={{
+                  textAlign: "justify",
+                  lineHeight: 1.7,
+                  marginBottom: "24px",
+                  "@media (min-width: 600px)": {
+                    fontSize: "1.1rem",
+                    marginBottom: "2px",
+                  },
+                }}
               >
                 Esta vez no se trata de pigmentos escogidos al azar, sino que
                 están especialmente seleccionados por su afinidad con la
@@ -182,7 +207,16 @@ const Peluqueria = () => {
               <Typography
                 variant="body1"
                 component="p"
-                className="peluqueria-text"
+                sx={{
+                  textAlign: "justify",
+                  lineHeight: 1.7,
+                  marginBottom: "24px",
+
+                  "@media (min-width: 600px)": {
+                    fontSize: "1.1rem",
+                    marginBottom: "2px",
+                  },
+                }}
               >
                 De esta manera se consiguen colores únicos, teniendo en cuenta
                 el color y estructura natural de su cabello, incluso cuando lo
