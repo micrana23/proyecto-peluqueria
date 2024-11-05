@@ -60,7 +60,9 @@ section img {
   flex-grow: 1;
   object-fit: cover;
   opacity: 0.8;
-  transition: width 0.5s ease, opacity 0.5s ease;
+  transition:
+    width 0.5s ease,
+    opacity 0.5s ease;
 }
 
 section img:hover {

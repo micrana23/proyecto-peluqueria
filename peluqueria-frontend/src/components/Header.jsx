@@ -54,7 +54,7 @@ const Header = () => {
           <img
             src="/assets/images/logo portada.png"
             alt="Peluquería Xtylo"
-            style={{ height: 80, borderRadius:"50%" }}
+            style={{ height: 80, borderRadius: "50%" }}
           />
         </IconButton>
 
