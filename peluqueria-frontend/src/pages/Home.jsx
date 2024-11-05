@@ -28,7 +28,10 @@ const Home = () => {
 
       {/* Contenedor adicional debajo del texto */}
       <div className="relative z-20 mt-10 text-black flex flex-col items-center justify-center h-450 mb-5">
-        <p className= "text-center text-2xl md:text-3xl lg:text-4xl font-dancing tracking-wide"> NUESTRO SALÓN</p>
+        <p className="text-center text-2xl md:text-3xl lg:text-4xl font-dancing tracking-wide">
+          {" "}
+          NUESTRO SALÓN
+        </p>
       </div>
       {/* Contenedor de imágenes encima del footer */}
       <section>
@@ -97,7 +100,7 @@ const Xtylotext = () => {
         >
           En Xtylo, la pureza es la base sobre la cual definimos la belleza.
         </Typography>
-{/* 
+        {/* 
         <Typography
           variant="body1"
           sx={{

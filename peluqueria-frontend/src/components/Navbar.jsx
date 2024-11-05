@@ -2,14 +2,14 @@ import React, { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { IconButton } from "@mui/material";
 import { Menu as MenuIcon } from "@mui/icons-material";
-import ContentCutIcon from "@mui/icons-material/ContentCut"; 
+import ContentCutIcon from "@mui/icons-material/ContentCut";
 import PropTypes from "prop-types";
 import FemaleOutlinedIcon from "@mui/icons-material/FemaleOutlined";
-import BackHandOutlinedIcon from '@mui/icons-material/BackHandOutlined';
+import BackHandOutlinedIcon from "@mui/icons-material/BackHandOutlined";
 
 function Navbar({ isNovias }) {
   const [subMenuOpen, setSubMenuOpen] = useState(false);
-  const [smallScreenSubMenuOpen, setSmallScreenSubMenuOpen] = useState(false); 
+  const [smallScreenSubMenuOpen, setSmallScreenSubMenuOpen] = useState(false);
   const timeoutRef = useRef(null);
 
   const handleMouseEnter = () => {
