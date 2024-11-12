@@ -6,6 +6,7 @@ import Contacto from "./pages/Contacto";
 import Peluqueria from "./pages/Peluqueria";
 import Novias from "./pages/Novias";
 import Unas from "./pages/Unas";
+import NotFound from "./pages/NotFound";
 import "./styles/global.css";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 
@@ -21,6 +22,7 @@ function App() {
           <Route path="/servicios/unas" element={<Unas />} />
           <Route path="/contacto" element={<Contacto />} />
           <Route path="/politica-privacidad" element={<PrivacyPolicy />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
     </Router>
