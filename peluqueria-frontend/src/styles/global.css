@@ -50,7 +50,7 @@ form {
 section {
   display: flex;
   max-width: 100%; /* Para que el contenedor ocupe el ancho completo en pantallas grandes */
-  height: 450px;
+  height: 550px;
   margin: 0 auto;
   margin-bottom: 70px;
 }
