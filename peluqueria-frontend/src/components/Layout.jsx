@@ -65,7 +65,6 @@ const Layout = ({ children }) => {
           {/* Sección de RRHH (Facebook y Email) */}
           <div className="flex flex-col items-start w-full md:w-auto">
             <div className="flex mb-1">
-              <FacebookIcon className="mr-2" />
               <a href="mailto:micrana61@gmail.com" className="mr-2">
                 <EmailIcon className="text-white" />
               </a>
