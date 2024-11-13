@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Layout from "../components/Layout";
 import { Link } from "react-router-dom";
 import { Phone, LocationOn, AccessTime } from "@mui/icons-material"; // Importamos los iconos desde Material UI
+import { Snackbar, Alert } from "@mui/material";
 
 const Contacto = () => {
   const [formData, setFormData] = useState({
@@ -13,6 +14,11 @@ const Contacto = () => {
   });
 
   const [errors, setErrors] = useState({});
+  const [openSnackbar, setOpenSnackbar] = useState(false);
+
+  const handleCloseSnackbar = () => {
+    setOpenSnackbar(false);
+  };
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -59,7 +65,16 @@ const Contacto = () => {
       });
 
       if (response.ok) {
-        alert("Email enviado con éxito");
+        setOpenSnackbar(true);
+        //Restablece el formulario
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          message: "",
+          acceptPolicy: false,
+        });
+        setErrors({}); //Limpia los errores también, en caso de que los haya habido
       } else {
         alert("Error al enviar el email");
       }
@@ -71,39 +86,53 @@ const Contacto = () => {
   return (
     <Layout>
       <div className="flex flex-col items-center justify-center min-h-screen bg-violet-100">
-        <h1 className="custom-h2 mt-12 md:mt-16 mb-8 text-center">
+        <h1 className="custom-h2 mt-40 md:mt-36 mb-8 text-center">
           Contáctanos
         </h1>
+        <Snackbar
+          open={openSnackbar}
+          autoHideDuration={3000}
+          onClose={handleCloseSnackbar}
+          anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+        >
+          <Alert
+            onClose={handleCloseSnackbar}
+            severity="success"
+            sx={{ width: "100%" }}
+          >
+            ¡Tu mensaje ha sido enviado con éxito!
+          </Alert>
+        </Snackbar>
 
-        <div className="w-full max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 p-4 bg-vilotet-100 rounded-lg mb-8">
+        <div className="flex flex-col md:flex-row items-center md:items-start justify-between w-full max-w-5xl mx-auto p-4 bg-violet-100 rounded-lg mb-8 space-y-4 md:space-y-0">
           {/* Teléfono */}
-          <div className="flex flex-col items-center justify-center w-[399.8px] h-[157.6px] rounded-lg">
+          <div className="flex flex-col items-center text-center w-[399.8px]">
             <Phone className="text-pink-500" style={{ fontSize: "40px" }} />
-            <div className="text-center mt-2">
+            <div className="mt-2">
               <p className="text-lg font-semibold">Teléfono</p>
               <p>918987654 / 665769021</p>
             </div>
           </div>
 
           {/* Dirección */}
-          <div className="flex flex-col items-center justify-center w-[399.8px] h-[157.6px] rounded-lg">
+          <div className="flex flex-col items-center text-center w-[399.8px]">
             <LocationOn
               className="text-pink-500"
               style={{ fontSize: "40px" }}
             />
-            <div className="text-center mt-2">
+            <div className="mt-2">
               <p className="text-lg font-semibold">Dirección</p>
               <p>C/Añastro, Madrid</p>
             </div>
           </div>
 
           {/* Horario */}
-          <div className="flex flex-col items-center justify-center w-[399.8px] h-[157.6px] rounded-lg">
+          <div className="flex flex-col items-center text-center w-[399.8px]">
             <AccessTime
               className="text-pink-500"
               style={{ fontSize: "40px" }}
             />
-            <div className="text-center mt-2">
+            <div className="mt-2">
               <p className="text-lg font-semibold">Horario</p>
               <p>
                 De lunes a Viernes 09:30h a 18:30h <br />
@@ -171,6 +200,7 @@ const Contacto = () => {
             placeholder="Mensaje"
             onChange={handleChange}
             value={formData.message}
+            lang="es"
             className={`mb-4 p-2 border ${
               errors.message ? "border-red-500" : "border-gray-300"
             } rounded w-full bg-pink-100 h-[150px] focus:outline-none focus:ring-2 focus:ring-pink-300`}
