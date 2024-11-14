@@ -1,6 +1,8 @@
 import React from "react";
 import Layout from "../components/Layout";
 import { Box, Typography, Container } from "@mui/material";
+import CookieConsent from '../components/CookieConsent';
+
 
 const Home = () => {
   return (
@@ -62,6 +64,7 @@ const Home = () => {
           className="mb-4"
         />
       </section>
+      <CookieConsent />
     </Layout>
   );
 };
@@ -100,19 +103,6 @@ const Xtylotext = () => {
         >
           En Xtylo, la pureza es la base sobre la cual definimos la belleza.
         </Typography>
-        {/* 
-        <Typography
-          variant="body1"
-          sx={{
-            mb: { xs: 2, sm: 3, md: 4 },
-            fontSize: { xs: "0.9rem", sm: "1.1rem", md: "1.3rem" },
-            color: "#555",
-          }}
-        >
-          Nos destacamos como el equilibrio perfecto entre tu bienestar y lo que
-          te hace único: tu forma de percibir el mundo.
-        </Typography> */}
-
         {/* Utilizamos Box en lugar de Grid */}
         <Box
           display="flex"
