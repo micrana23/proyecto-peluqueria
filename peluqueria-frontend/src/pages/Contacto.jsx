@@ -147,7 +147,7 @@ const Contacto = () => {
         <h2 className="custom-h2 mb-4">¿Tienes alguna duda?, ¡Escríbenos!</h2>
         <form
           onSubmit={handleSubmit}
-          className="flex flex-col w-full max-w-5xl mx-auto p-4 bg-white shadow-md rounded-lg"
+          className="flex flex-col w-full max-w-5xl mx-auto p-4 bg-white shadow-md rounded-lg mb-20"
         >
           <input
             type="text"

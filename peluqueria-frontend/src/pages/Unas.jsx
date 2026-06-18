@@ -103,7 +103,7 @@ const Unas = () => {
                   sx={{ padding: 2, display: "flex", justifyContent: "center" }}
                 >
                   <img
-                    src="/assets/images/aplicando pelo.webp"
+                    src="/assets/images/pintar_uñas.webp"
                     alt="Foto estética"
                     style={{
                       width: "100%",
@@ -132,7 +132,7 @@ const Unas = () => {
                   sx={{ padding: 2, display: "flex", justifyContent: "center" }}
                 >
                   <img
-                    src="/assets/images/mojando pelo.webp"
+                    src="/assets/images/tratando ojeras.webp"
                     alt="Foto relajante"
                     style={{
                       width: "100%",
@@ -248,7 +248,7 @@ const Unas = () => {
               top: {
                 xs: "calc(75% + 60px)",
                 sm: "calc(70% + 70px)",
-                md: "calc(89% + 80px)",
+                md: "calc(89% + 70px)",
               },
               transform: "translateX(-50%)",
               textAlign: "center",
