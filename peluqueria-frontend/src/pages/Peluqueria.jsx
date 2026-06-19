@@ -32,12 +32,12 @@ const Peluqueria = () => {
   ];
 
   const images = [
-    "/assets/images/rubia2.jpg",
-    "/assets/images/reflejos.jpg",
-    "/assets/images/pelirroja.jpg",
-    "/assets/images/mechas.jpg",
+    "/assets/images/rubia2.webp",
+    "/assets/images/reflejos.webp",
+    "/assets/images/pelirroja.webp",
+    "/assets/images/mechas.webp",
     "/assets/images/modelomechas.jpg",
-    "/assets/images/castañarizado.jpg",
+    "/assets/images/castañarizado.webp",
   ];
 
   // Consulta para pantallas móviles
