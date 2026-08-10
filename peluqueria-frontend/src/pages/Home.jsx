@@ -1,8 +1,8 @@
 import React from "react";
 import Layout from "../components/Layout";
 import { Box, Typography, Container } from "@mui/material";
-import CookieConsent from '../components/CookieConsent';
-
+import CookieConsent from "../components/CookieConsent";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
@@ -19,10 +19,99 @@ const Home = () => {
           Tu navegador no soporta la etiqueta de video.
         </video>
 
-        {/* Frase justo debajo del logo */}
-        <h1 className="custom-h1 text-white z-20 mt-2 md:mt-12 lg:mt-32 text-center">
-          Bienvenido a Xtylo Peluquería
-        </h1>
+        {/* Overlay */}
+        <div
+          className="absolute inset-0 z-10"
+          style={{
+            background:
+              "linear-gradient(to bottom, rgba(0,0,0,0.15), rgba(0,0,0,0.45))",
+          }}
+        ></div>
+
+        {/* Bloque de contenido */}
+        <div
+          className="
+            z-20
+            flex
+            flex-col
+            items-center
+            translate-y-8
+            md:translate-y-12
+          "
+        >
+          {/* Categorías */}
+          <p
+            className="
+              uppercase
+              tracking-[0.45em]
+              text-xs
+              md:text-sm
+              text-[#d8b36a]
+              font-light
+              mb-4
+              drop-shadow-md
+            "
+          >
+            Peluquería · Estética · Novias
+          </p>
+
+          {/* Título */}
+          <h1
+            className="
+              custom-h1
+              text-white
+              text-center
+              font-light
+              tracking-wide
+              drop-shadow-lg
+              max-w-4xl
+              leading-tight
+              px-6
+            "
+          >
+            PRUEBA
+          </h1>
+
+          {/* Subtítulo */}
+          <p
+            className="
+              text-white/90
+              text-lg
+              md:text-xl
+              mt-6
+              tracking-wide
+              drop-shadow-md
+              text-center
+              max-w-3xl
+              px-6
+            "
+          >
+            Especialistas en coloración natural, tratamientos capilares y
+            belleza respetuosa para cuidar tu cabello como se merece.
+          </p>
+
+          {/* Botón */}
+          <Link
+            to="/contacto"
+            className="
+              mt-10
+              px-8
+              py-3
+              border
+              border-white
+              text-white
+              uppercase
+              tracking-[0.2em]
+              text-sm
+              transition-all
+              duration-300
+              hover:bg-white
+              hover:text-black
+            "
+          >
+            Reservar cita
+          </Link>
+        </div>
       </div>
 
       {/* Contenedor adicional con texto */}

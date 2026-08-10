@@ -26,7 +26,7 @@ function Navbar({ isNovias }) {
   const textColorClass = isNovias ? "text-white" : "text-white";
 
   return (
-    <nav className="flex justify-between items-center p-4">
+    <nav className="flex justify-between items-center px-8 py-6 absolute top-0 left-0 w-full z-30">
       <div className="md:hidden text-white text-2xl font-bold">
         Xtylo Peluquería
       </div>
@@ -35,7 +35,7 @@ function Navbar({ isNovias }) {
         <li>
           <Link
             to="/"
-            className={`${textColorClass} text-2xl font-bold hover:text-gray-400`}
+            className={`${textColorClass} text-xl font-medium tracking-wide transition-all duration-300 hover:text-[#d6b98c]`}
           >
             Home
           </Link>
@@ -46,7 +46,7 @@ function Navbar({ isNovias }) {
           onMouseLeave={handleMouseLeave}
         >
           <span
-            className={`${textColorClass} cursor-pointer text-2xl font-bold hover:text-gray-400`}
+            className={`${textColorClass} text-xl font-medium tracking-wide transition-all duration-300 hover:text-[#d6b98c]`}
           >
             Servicios
           </span>
@@ -85,7 +85,7 @@ function Navbar({ isNovias }) {
         <li>
           <Link
             to="/contacto"
-            className={`${textColorClass} text-2xl font-bold hover:text-gray-400`}
+            className={`${textColorClass} text-xl font-medium tracking-wide transition-all duration-300 hover:text-[#d6b98c]`}
           >
             Contacto
           </Link>

@@ -13,10 +13,9 @@ body {
 
 @layer components {
   .custom-h1 {
-    font-family: "Poppins", Helvetica, Arial, Lucida, sans-serif; /* Fuente personalizada */
-    font-weight: 50; /* Peso de la fuente */
-    font-size: 50px; /* Tamaño de fuente */
-    color: #9e8484;
+    font-family:
+      "Poppins", Helvetica, Arial, Lucida, sans-serif; /* Fuente personalizada */
+    font-weight: 300; /* Peso de la fuente */
     text-align: center; /* Alineación */
   }
 
