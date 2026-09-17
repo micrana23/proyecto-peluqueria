@@ -7,9 +7,7 @@ export default {
       fontFamily: {
         playfair: ['"Playfair Display"', "serif"],
         dancing: ['"Dancing Script"', "cursive"],
-        lora: ['"Lora"', "serif"],
-        greatvibes: ['"Great Vibes"', "cursive"],
-        alexbrush: ['"Alex Brush"', "cursive"],
+        sans: ['"Inter"', "system-ui", "sans-serif"],
       },
       fontWeight: {
         "ultra-light": 100,

@@ -31,12 +31,12 @@ const Home = () => {
         {/* Bloque de contenido */}
         <div
           className="
-            z-20
-            flex
-            flex-col
-            items-center
-            translate-y-8
-            md:translate-y-12
+              relative
+              z-20
+              flex
+              flex-col
+              items-center
+              text-center
           "
         >
           {/* Categorías */}
@@ -46,10 +46,10 @@ const Home = () => {
               tracking-[0.45em]
               text-xs
               md:text-sm
-              text-[#d8b36a]
+              text-[#e3c9a0]
               font-light
               mb-4
-              drop-shadow-md
+              [text-shadow:0_1px_6px_rgba(0,0,0,0.4)]
             "
           >
             Peluquería · Estética · Novias
@@ -63,13 +63,17 @@ const Home = () => {
               text-center
               font-light
               tracking-wide
-              drop-shadow-lg
+              text-4xl
+              sm:text-5xl
+              md:text-6xl
+              lg:text-7xl
               max-w-4xl
               leading-tight
               px-6
+              [text-shadow:0_2px_10px_rgba(0,0,0,0.45)]
             "
           >
-            PRUEBA
+            Peluquería Biosaludable en Madrid
           </h1>
 
           {/* Subtítulo */}
@@ -80,10 +84,12 @@ const Home = () => {
               md:text-xl
               mt-6
               tracking-wide
-              drop-shadow-md
+              [text-shadow:0_1px_8px_rgba(0,0,0,0.4)]
               text-center
               max-w-3xl
               px-6
+              font-sans
+              font-light
             "
           >
             Especialistas en coloración natural, tratamientos capilares y
@@ -103,6 +109,7 @@ const Home = () => {
               uppercase
               tracking-[0.2em]
               text-sm
+              font-sans
               transition-all
               duration-300
               hover:bg-white
@@ -118,10 +125,9 @@ const Home = () => {
       <Xtylotext />
 
       {/* Contenedor adicional debajo del texto */}
-      <div className="relative z-20 mt-10 text-black flex flex-col items-center justify-center h-450 mb-5">
-        <p className="text-center text-2xl md:text-3xl lg:text-4xl font-dancing tracking-wide">
-          {" "}
-          NUESTRO SALÓN
+      <div className="relative z-20 mt-10 text-[#4a4a4a] flex flex-col items-center justify-center h-450 mb-5">
+        <p className="text-center text-sm md:text-base font-sans font-medium tracking-[0.3em] uppercase">
+          Nuestro salón
         </p>
       </div>
       {/* Contenedor de imágenes encima del footer */}
@@ -172,11 +178,12 @@ const Xtylotext = () => {
       >
         <Typography
           variant="h3"
-          className="text-black"
           sx={{
-            fontFamily: "Playfair Display",
-            mb: { xs: 2, sm: 3, md: 4 },
-            fontSize: { xs: "1.8rem", sm: "2.5rem", md: "3.5rem" }, // Tamaño de fuente para móvil, tablet y pantallas grandes
+            fontFamily: '"Playfair Display", serif',
+            fontWeight: 400,
+            color: "#4a4a4a",
+            mb: { xs: 2, sm: 3, md: 3 },
+            fontSize: { xs: "1.8rem", sm: "2.5rem", md: "3.25rem" },
           }}
         >
           La esencia de la belleza en Xtylo
@@ -185,9 +192,11 @@ const Xtylotext = () => {
         <Typography
           variant="body1"
           sx={{
-            mb: { xs: 2, sm: 3, md: 4 },
-            fontSize: { xs: "0.9rem", sm: "1.1rem", md: "1.3rem" }, // Tamaño de fuente para móvil, tablet y pantallas grandes
-            color: "#555",
+            fontFamily: '"Inter", sans-serif',
+            mb: { xs: 3, sm: 4, md: 5 },
+            fontSize: { xs: "0.95rem", sm: "1.05rem", md: "1.15rem" },
+            color: "#6b6b6b",
+            fontStyle: "italic",
           }}
         >
           En Xtylo, la pureza es la base sobre la cual definimos la belleza.
@@ -203,26 +212,18 @@ const Xtylotext = () => {
             <Typography
               variant="body1"
               sx={{
-                fontSize: { xs: "0.9rem", sm: "1.1rem", md: "1.3rem" }, // Tamaño de fuente para móvil, tablet y pantallas grandes
-                color: "#555",
+                fontFamily: '"Inter", sans-serif',
+                fontSize: { xs: "0.95rem", sm: "1rem", md: "1.05rem" },
+                lineHeight: 1.75,
+                color: "#6b6b6b",
               }}
             >
-              Apuesta por un estilo de vida basado en la belleza orgánica, con
+              Apuesta por un estilo de vida basado en la belleza orgánica:
               productos de última generación que actúan a nivel celular,
               respaldados científicamente y comprometidos con tu salud y el
-              medio ambiente.
-            </Typography>
-          </Box>
-          <Box flex={1}>
-            <Typography
-              variant="body1"
-              sx={{
-                fontSize: { xs: "0.9rem", sm: "1.1rem", md: "1.3rem" },
-                color: "#555",
-              }}
-            >
-              Deja que tu piel y tu cabello reciban el cuidado experto de un
-              equipo especializado en una belleza consciente y sostenible.
+              medio ambiente. Deja que tu piel y tu cabello reciban el cuidado
+              experto de un equipo especializado en una belleza consciente y
+              sostenible.
             </Typography>
           </Box>
         </Box>

@@ -24,8 +24,12 @@ const Header = () => {
     <AppBar
       position="fixed"
       sx={{
-        backgroundColor: scrolled ? "rgba(0, 0, 0, 0.7)" : "transparent", // Cambia a oscuro al hacer scroll
-        transition: "background-color 0.3s ease", // Transición suave
+        backgroundColor: scrolled ? "rgba(51, 67, 74, 0.9)" : "transparent", // Carbón elegante al hacer scroll, en vez de negro plano
+        backdropFilter: scrolled ? "blur(10px)" : "none",
+        borderBottom: scrolled
+          ? "1px solid rgba(216, 179, 106, 0.2)" // Línea dorada muy sutil para dar definición de marca
+          : "1px solid transparent",
+        transition: "background-color 0.4s ease, border-color 0.4s ease",
         boxShadow: "none", // Quitar sombras
         width: "100%", // Asegurar que el header ocupe todo el ancho
       }}

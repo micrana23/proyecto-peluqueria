@@ -1,11 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: "Inter", system-ui, Avenir, Helvetica, Arial, sans-serif;
   margin: 0;
   padding: 0;
   background-color: #f8f8f8;
@@ -14,9 +12,14 @@ body {
 @layer components {
   .custom-h1 {
     font-family:
-      "Poppins", Helvetica, Arial, Lucida, sans-serif; /* Fuente personalizada */
-    font-weight: 300; /* Peso de la fuente */
-    text-align: center; /* Alineación */
+      "Playfair Display", serif; /* Titular elegante, coherente en toda la web */
+    font-weight: 400;
+    font-size: 2.75rem; /* Tamaño base de fallback; cada página puede sobreescribirlo con clases de Tailwind (text-4xl md:text-6xl, etc.) */
+    letter-spacing: 0.02em;
+    color: #4a4a4a; /* Mismo gris que custom-h2, para consistencia entre páginas */
+    text-align: center;
+    /* Antes usaba clamp() con vw, que recalcula en cada píxel de resize y, combinado con
+       drop-shadow (filter GPU), provocaba el "texto fantasma" duplicado en Chrome. */
   }
 
   .custom-h2 {
@@ -156,5 +159,5 @@ button:hover {
 }
 
 svg {
-  fill: black !important; /* Asegura que todos los iconos sean negros */
+  fill: whitesmoke !important;
 }

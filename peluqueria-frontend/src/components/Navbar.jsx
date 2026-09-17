@@ -23,20 +23,18 @@ function Navbar({ isNovias }) {
     }, 300);
   };
 
-  const textColorClass = isNovias ? "text-white" : "text-white";
+  const linkClass =
+    "text-white font-sans font-light text-sm uppercase tracking-[0.2em] transition-colors duration-300 hover:text-[#e3c9a0]";
 
   return (
-    <nav className="flex justify-between items-center px-8 py-6 absolute top-0 left-0 w-full z-30">
-      <div className="md:hidden text-white text-2xl font-bold">
+    <nav className="flex justify-between items-center p-4">
+      <div className="md:hidden text-white font-playfair text-xl tracking-wide">
         Xtylo Peluquería
       </div>
 
-      <ul className="hidden md:flex space-x-8 list-none flex-grow justify-end">
+      <ul className="hidden md:flex items-center space-x-10 list-none flex-grow justify-end">
         <li>
-          <Link
-            to="/"
-            className={`${textColorClass} text-xl font-medium tracking-wide transition-all duration-300 hover:text-[#d6b98c]`}
-          >
+          <Link to="/" className={linkClass}>
             Home
           </Link>
         </li>
@@ -45,36 +43,41 @@ function Navbar({ isNovias }) {
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >
-          <span
-            className={`${textColorClass} text-xl font-medium tracking-wide transition-all duration-300 hover:text-[#d6b98c]`}
-          >
-            Servicios
-          </span>
+          <span className={`${linkClass} cursor-pointer`}>Servicios</span>
           {subMenuOpen && (
-            <ul className="absolute left-0 bg-white shadow-md mt-2 rounded-lg z-10 w-40">
+            <ul className="absolute left-1/2 -translate-x-1/2 bg-[#33434a] border-t border-[#e3c9a0]/40 shadow-xl mt-4 rounded-sm z-10 w-48 py-2">
               <li className="flex items-center">
-                <ContentCutIcon color="black" className="mr-2" />
+                <ContentCutIcon
+                  sx={{ color: "#e3c9a0", fontSize: 20 }}
+                  className="ml-4 mr-3"
+                />
                 <Link
                   to="/servicios/peluqueria"
-                  className="block px-4 py-2 text-black hover:bg-gray-200"
+                  className="block px-2 py-2.5 w-full text-white/90 font-sans font-light text-sm tracking-wide hover:text-[#e3c9a0] transition-colors duration-200"
                 >
                   Peluquería
                 </Link>
               </li>
               <li className="flex items-center">
-                <FemaleOutlinedIcon color="black" className="mr-2" />
+                <FemaleOutlinedIcon
+                  sx={{ color: "#e3c9a0", fontSize: 20 }}
+                  className="ml-4 mr-3"
+                />
                 <Link
                   to="/servicios/novias"
-                  className="block px-4 py-2 text-black hover:bg-gray-200"
+                  className="block px-2 py-2.5 w-full text-white/90 font-sans font-light text-sm tracking-wide hover:text-[#e3c9a0] transition-colors duration-200"
                 >
                   Novias
                 </Link>
               </li>
               <li className="flex items-center">
-                <BackHandOutlinedIcon color="black" className="mr-2" />
+                <BackHandOutlinedIcon
+                  sx={{ color: "#e3c9a0", fontSize: 20 }}
+                  className="ml-4 mr-3"
+                />
                 <Link
                   to="/servicios/unas"
-                  className="block px-4 py-2 text-black hover:bg-gray-200"
+                  className="block px-2 py-2.5 w-full text-white/90 font-sans font-light text-sm tracking-wide hover:text-[#e3c9a0] transition-colors duration-200"
                 >
                   Uñas
                 </Link>
@@ -83,10 +86,7 @@ function Navbar({ isNovias }) {
           )}
         </li>
         <li>
-          <Link
-            to="/contacto"
-            className={`${textColorClass} text-xl font-medium tracking-wide transition-all duration-300 hover:text-[#d6b98c]`}
-          >
+          <Link to="/contacto" className={linkClass}>
             Contacto
           </Link>
         </li>
@@ -95,19 +95,19 @@ function Navbar({ isNovias }) {
       <div className="md:hidden">
         <IconButton
           edge="end"
-          color="inherit"
           aria-label="menu"
           onClick={() => setSubMenuOpen(!subMenuOpen)}
+          sx={{ color: "#ffffff" }}
         >
           <MenuIcon />
         </IconButton>
         {subMenuOpen && (
-          <div className="absolute right-0 bg-white shadow-md rounded-lg">
-            <ul className="z-10 w-40">
+          <div className="absolute right-4 bg-[#33434a] border-t border-[#e3c9a0]/40 shadow-xl rounded-sm">
+            <ul className="z-10 w-48 py-2">
               <li>
                 <Link
                   to="/"
-                  className="block px-4 py-2 text-black hover:bg-gray-200"
+                  className="block px-5 py-2.5 text-white/90 font-sans font-light text-sm tracking-wide hover:text-[#e3c9a0] transition-colors duration-200"
                   onClick={() => setSubMenuOpen(false)}
                 >
                   Home
@@ -115,7 +115,7 @@ function Navbar({ isNovias }) {
               </li>
               <li>
                 <span
-                  className="block px-4 py-2 text-black cursor-pointer hover:bg-gray-200"
+                  className="block px-5 py-2.5 text-white/90 font-sans font-light text-sm tracking-wide cursor-pointer hover:text-[#e3c9a0] transition-colors duration-200"
                   onClick={() =>
                     setSmallScreenSubMenuOpen(!smallScreenSubMenuOpen)
                   }
@@ -123,32 +123,41 @@ function Navbar({ isNovias }) {
                   Servicios
                 </span>
                 {smallScreenSubMenuOpen && (
-                  <ul className="bg-white shadow-md mt-2 rounded-lg">
+                  <ul className="bg-[#3c4d54] mt-1">
                     <li className="flex items-center">
-                      <ContentCutIcon className="mr-2" />
+                      <ContentCutIcon
+                        sx={{ color: "#e3c9a0", fontSize: 18 }}
+                        className="ml-6 mr-2"
+                      />
                       <Link
                         to="/servicios/peluqueria"
-                        className="block px-4 py-2 text-black hover:bg-gray-200"
+                        className="block px-2 py-2 w-full text-white/80 font-sans font-light text-sm hover:text-[#e3c9a0] transition-colors duration-200"
                         onClick={() => setSubMenuOpen(false)}
                       >
                         Peluquería
                       </Link>
                     </li>
                     <li className="flex items-center">
-                      <FemaleOutlinedIcon className="mr-2" />
+                      <FemaleOutlinedIcon
+                        sx={{ color: "#e3c9a0", fontSize: 18 }}
+                        className="ml-6 mr-2"
+                      />
                       <Link
                         to="/servicios/novias"
-                        className="block px-4 py-2 text-black hover:bg-gray-200"
+                        className="block px-2 py-2 w-full text-white/80 font-sans font-light text-sm hover:text-[#e3c9a0] transition-colors duration-200"
                         onClick={() => setSubMenuOpen(false)}
                       >
                         Novias
                       </Link>
                     </li>
                     <li className="flex items-center">
-                      <BackHandOutlinedIcon className="mr-2" />
+                      <BackHandOutlinedIcon
+                        sx={{ color: "#e3c9a0", fontSize: 18 }}
+                        className="ml-6 mr-2"
+                      />
                       <Link
                         to="/servicios/unas"
-                        className="block px-4 py-2 text-black hover:bg-gray-200"
+                        className="block px-2 py-2 w-full text-white/80 font-sans font-light text-sm hover:text-[#e3c9a0] transition-colors duration-200"
                         onClick={() => setSubMenuOpen(false)}
                       >
                         Uñas
@@ -160,7 +169,7 @@ function Navbar({ isNovias }) {
               <li>
                 <Link
                   to="/contacto"
-                  className="block px-4 py-2 text-black hover:bg-gray-200"
+                  className="block px-5 py-2.5 text-white/90 font-sans font-light text-sm tracking-wide hover:text-[#e3c9a0] transition-colors duration-200"
                   onClick={() => setSubMenuOpen(false)}
                 >
                   Contacto

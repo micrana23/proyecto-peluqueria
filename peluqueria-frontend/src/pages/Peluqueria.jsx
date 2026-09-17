@@ -54,7 +54,7 @@ const Peluqueria = () => {
         />
         {/* Título (h1) fuera de la imagen */}
         <div className="relative z-20 flex flex-col items-center justify-center my-8">
-          <h1 className="custom-h1 text-6xl sm:text-5xl lg:text-5xl mt-16">
+          <h1 className="custom-h1 text-4xl sm:text-5xl lg:text-6xl mt-16">
             Peluquería Biosaludable
           </h1>
         </div>
@@ -94,11 +94,12 @@ const Peluqueria = () => {
                 variant="h4"
                 component="h4"
                 align="left"
-                style={{
-                  marginTop: "8px",
-                  fontSize: "1.20rem",
-                  fontWeight: "bold",
-                  color: "#523253",
+                sx={{
+                  fontFamily: '"Playfair Display", serif',
+                  fontWeight: 600,
+                  color: "#4a4a4a",
+                  mt: 1,
+                  fontSize: "1.35rem",
                 }}
               >
                 {service.title}
@@ -108,10 +109,11 @@ const Peluqueria = () => {
               <Typography
                 variant="body1"
                 component="p"
-                className="peluqueria-text"
                 sx={{
+                  fontFamily: '"Inter", sans-serif',
                   textAlign: "justify",
                   lineHeight: 1.7,
+                  color: "#6b6b6b",
                   marginBottom: "24px", // Mantiene una separación adecuada para pantallas móviles
                   "@media (min-width: 600px)": {
                     marginBottom: "12px", // Reduce la separación para pantallas medianas y grandes
@@ -152,8 +154,10 @@ const Peluqueria = () => {
                 variant="body1"
                 component="p"
                 sx={{
+                  fontFamily: '"Inter", sans-serif',
                   textAlign: "justify",
                   lineHeight: 1.7,
+                  color: "#6b6b6b",
                   marginBottom: "24px", // Para pantallas móviles
                   "@media (min-width: 600px)": {
                     fontSize: "1.1rem",
@@ -169,8 +173,10 @@ const Peluqueria = () => {
                 variant="body1"
                 component="p"
                 sx={{
+                  fontFamily: '"Inter", sans-serif',
                   textAlign: "justify",
                   lineHeight: 1.7,
+                  color: "#6b6b6b",
                   marginBottom: "24px",
                   "@media (min-width: 600px)": {
                     fontSize: "1.1rem",
@@ -188,8 +194,10 @@ const Peluqueria = () => {
                 variant="body1"
                 component="p"
                 sx={{
+                  fontFamily: '"Inter", sans-serif',
                   textAlign: "justify",
                   lineHeight: 1.7,
+                  color: "#6b6b6b",
                   marginBottom: "24px",
                   "@media (min-width: 600px)": {
                     fontSize: "1.1rem",
@@ -208,8 +216,10 @@ const Peluqueria = () => {
                 variant="body1"
                 component="p"
                 sx={{
+                  fontFamily: '"Inter", sans-serif',
                   textAlign: "justify",
                   lineHeight: 1.7,
+                  color: "#6b6b6b",
                   marginBottom: "24px",
 
                   "@media (min-width: 600px)": {
