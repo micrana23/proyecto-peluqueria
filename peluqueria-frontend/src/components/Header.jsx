@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { AppBar, Toolbar, IconButton } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import PropTypes from "prop-types";
 import Navbar from "./Navbar";
 
-const Header = () => {
+const Header = ({ forcedBg }) => {
   const [scrolled, setScrolled] = useState(false);
   const navigate = useNavigate();
 
@@ -24,11 +25,20 @@ const Header = () => {
     <AppBar
       position="fixed"
       sx={{
-        backgroundColor: scrolled ? "rgba(51, 67, 74, 0.9)" : "transparent", // Carbón elegante al hacer scroll, en vez de negro plano
-        backdropFilter: scrolled ? "blur(10px)" : "none",
-        borderBottom: scrolled
-          ? "1px solid rgba(216, 179, 106, 0.2)" // Línea dorada muy sutil para dar definición de marca
-          : "1px solid transparent",
+        backgroundColor: forcedBg
+          ? forcedBg // Páginas sin foto de fondo (p. ej. Contacto): color fijo, sin cambios al hacer scroll
+          : scrolled
+            ? "rgba(51, 67, 74, 0.9)" // Carbón elegante al hacer scroll, transparente arriba
+            : "transparent",
+        backdropFilter: forcedBg
+          ? "blur(10px)"
+          : scrolled
+            ? "blur(10px)"
+            : "none",
+        borderBottom:
+          forcedBg || scrolled
+            ? "1px solid rgba(216, 179, 106, 0.2)" // Línea dorada muy sutil para dar definición de marca
+            : "1px solid transparent",
         transition: "background-color 0.4s ease, border-color 0.4s ease",
         boxShadow: "none", // Quitar sombras
         width: "100%", // Asegurar que el header ocupe todo el ancho
@@ -58,7 +68,8 @@ const Header = () => {
           <img
             src="/assets/images/logo portada.png"
             alt="Peluquería Xtylo"
-            style={{ height: 80, borderRadius: "50%" }}
+            decoding="async"
+            className="h-10 sm:h-14 md:h-20 rounded-full"
           />
         </IconButton>
 
@@ -75,6 +86,10 @@ const Header = () => {
       </Toolbar>
     </AppBar>
   );
+};
+
+Header.propTypes = {
+  forcedBg: PropTypes.string,
 };
 
 export default Header;

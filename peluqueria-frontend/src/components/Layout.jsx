@@ -1,16 +1,15 @@
-import React from "react";
+import PropTypes from "prop-types";
 import Header from "./Header";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import PhoneIcon from "@mui/icons-material/Phone";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
-import FacebookIcon from "@mui/icons-material/Facebook";
 import EmailIcon from "@mui/icons-material/Email";
 import { Link } from "react-router-dom";
 
-const Layout = ({ children }) => {
+const Layout = ({ children, headerBg }) => {
   return (
     <div className="flex flex-col w-full min-h-screen bg-white-100">
-      <Header />
+      <Header forcedBg={headerBg} />
       <main className="flex-grow">{children}</main>
       <footer className="relative p-6 md:p-10 bg-[#33434a] text-white/90 border-t border-[#e3c9a0]/30">
         {/* Ajustamos las secciones para que se apilen en pantallas pequeñas */}
@@ -95,6 +94,11 @@ const Layout = ({ children }) => {
       </footer>
     </div>
   );
+};
+
+Layout.propTypes = {
+  children: PropTypes.node.isRequired,
+  headerBg: PropTypes.string,
 };
 
 export default Layout;

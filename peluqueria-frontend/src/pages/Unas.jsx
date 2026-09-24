@@ -1,266 +1,83 @@
-import React from "react";
-import { Box, Typography, Paper, ButtonBase } from "@mui/material";
+import { Link } from "react-router-dom";
+import { Typography } from "@mui/material";
 import Layout from "../components/Layout";
+import { nailContent } from "../data/serviceContent";
 
 const Unas = () => {
   return (
     <Layout>
-      <Box className="relative">
-        {/* Imagen de fondo */}
+      <div className="relative">
         <img
-          src="/assets/images/Servicio-estetica.jpg"
-          alt="Descripción de la imagen"
-          className="w-full h-auto max-h-[600px] object-cover relative z-0"
+          src="/assets/images/Servicio-estetica.webp"
+          alt="Servicios de estética Xtylo"
+          loading="eager"
+          decoding="async"
+          className="w-full h-auto max-h-[550px] object-cover relative z-0"
         />
 
-        {/* Título (h1) fuera de la imagen */}
         <div className="relative z-20 flex flex-col items-center justify-center my-8">
-          <h1 className="custom-h1 text-5xl sm:text-4xl lg:text-5xl mt-4">
+          <h1 className="custom-h1 text-4xl sm:text-5xl lg:text-6xl mt-4">
             Tratamiento pedicura y manicura
           </h1>
         </div>
 
-        {/* Contenedor para Servicios de Estética */}
-        <Box mt={8} px={{ xs: 1, md: 2 }}>
-          <Typography
-            variant="h2"
-            className="text-gray-900 text-4xl md:text-5xl lg:text-6xl font-playfair font-bold text-center"
-            sx={{
-              fontSize: { xs: "1.5rem", sm: "2rem", md: "3rem", lg: "3rem" },
-            }}
-          >
-            Servicios de Estética
-          </Typography>
-          <Box
-            sx={{
-              width: "150px",
-              height: "4px",
-              backgroundColor: "gray",
-              margin: "16px auto",
-            }}
-          ></Box>
+        <div className="relative z-20 my-8 px-4 md:px-8">
+          <div className="flex flex-col items-center justify-center mb-10">
+            <h2 className="custom-h2">Servicios de Estética</h2>
+          </div>
 
-          {/* Contenedor grande usando Box */}
-          <Box display="flex" flexDirection="column" gap={2}>
-            {/* Fila de arriba */}
-            <Box
-              display={{ xs: "block", md: "flex" }}
-              justifyContent="space-between"
-            >
-              {/* Primer bloque (frase + foto) */}
-              <Box flex={1} mb={{ xs: 2, md: 0 }} mr={{ md: 1 }}>
-                <Paper elevation={2} sx={{ padding: 2 }}>
-                  <Typography variant="body1" className="text-gray-700">
-                    <strong>
-                      Disfruta de nuestros tratamientos exclusivos para cuidar
-                      tus
-                    </strong>{" "}
-                    <br />
-                    uñas y piel con productos de alta calidad.
-                  </Typography>
-                </Paper>
-              </Box>
-              <Box flex={1} mb={{ xs: 2, md: 0 }} mx={{ md: 1 }}>
-                <Paper
-                  elevation={2}
-                  sx={{ padding: 2, display: "flex", justifyContent: "center" }}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            {nailContent.map((item, index) =>
+              item.type === "image" ? (
+                <div
+                  key={index}
+                  className="border border-[#e8e2da] bg-white p-2 shadow-sm"
                 >
                   <img
-                    src="/assets/images/uñas pies.webp"
-                    alt="Foto tratamiento"
-                    style={{
-                      width: "100%",
-                      height: "auto",
-                      maxHeight: "400px",
-                      borderRadius: "8px",
-                      boxShadow: "0 2px 10px rgba(0, 0, 0, 0.2)",
-                    }}
+                    src={item.src}
+                    alt={item.alt}
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full aspect-[4/3] object-cover"
+                    style={
+                      item.focus ? { objectPosition: item.focus } : undefined
+                    }
                   />
-                </Paper>
-              </Box>
-              <Box flex={1} mb={{ xs: 2, md: 0 }} ml={{ md: 1 }}>
-                <Paper elevation={2} sx={{ padding: 2 }}>
-                  <Typography variant="body1" className="text-gray-700">
-                    <strong>
-                      Ofrecemos servicios de manicura, pedicura y tratamientos
-                    </strong>{" "}
-                    <br />
-                    especiales para que siempre te veas radiante.
-                  </Typography>
-                </Paper>
-              </Box>
-            </Box>
-
-            {/* Fila de abajo */}
-            <Box
-              display={{ xs: "block", md: "flex" }}
-              justifyContent="space-between"
-            >
-              {/* Segundo bloque (foto + frase) */}
-              <Box flex={1} mb={{ xs: 2, md: 0 }} mr={{ md: 1 }}>
-                <Paper
-                  elevation={2}
-                  sx={{ padding: 2, display: "flex", justifyContent: "center" }}
+                </div>
+              ) : (
+                <div
+                  key={index}
+                  className="border border-[#e8e2da] bg-white p-6 flex items-center"
                 >
-                  <img
-                    src="/assets/images/pintar_uñas.webp"
-                    alt="Foto estética"
-                    style={{
-                      width: "100%",
-                      height: "auto",
-                      maxHeight: "300px",
-                      borderRadius: "8px",
-                      boxShadow: "0 2px 10px rgba(0, 0, 0, 0.2)",
+                  <Typography
+                    variant="body1"
+                    sx={{
+                      fontFamily: '"Inter", sans-serif',
+                      color: "#6b6b6b",
+                      lineHeight: 1.7,
                     }}
-                  />
-                </Paper>
-              </Box>
-              <Box flex={1} mb={{ xs: 2, md: 0 }} mx={{ md: 1 }}>
-                <Paper elevation={2} sx={{ padding: 2 }}>
-                  <Typography variant="body1" className="text-gray-700">
-                    <strong>
-                      Nuestros especialistas te atenderán con atención
-                    </strong>{" "}
-                    <br />
-                    personalizada para garantizar una experiencia relajante.
+                  >
+                    {item.content}
                   </Typography>
-                </Paper>
-              </Box>
-              <Box flex={1} mb={{ xs: 2, md: 0 }} ml={{ md: 1 }}>
-                <Paper
-                  elevation={2}
-                  sx={{ padding: 2, display: "flex", justifyContent: "center" }}
-                >
-                  <img
-                    src="/assets/images/tratando ojeras.webp"
-                    alt="Foto relajante"
-                    style={{
-                      width: "100%",
-                      height: "auto",
-                      maxHeight: "300px",
-                      borderRadius: "8px",
-                      boxShadow: "0 2px 10px rgba(0, 0, 0, 0.2)",
-                    }}
-                  />
-                </Paper>
-              </Box>
-            </Box>
-          </Box>
-        </Box>
+                </div>
+              ),
+            )}
+          </div>
+        </div>
 
-        {/* Contenedor de Imágenes Abstractas con Fondo Distinto */}
-        <Box
-          className="relative z-30 flex justify-center items-center space-x-4 md:space-x-6 py-16 md:py-28 pt-30 my-16 md:my-24 px-4"
-          sx={{
-            backgroundColor: "#90EE90", // Fondo de color claro
-            display: "flex",
-            flexDirection: "row", // Asegúrate de que las imágenes se distribuyan en fila
-            justifyContent: "center", // Centrar horizontalmente
-            alignItems: "center", // Alineación vertical
-            minHeight: { xs: "200px", md: "auto" }, // Ajusta la altura mínima para móviles
-          }}
-        >
-          <Box
-            component="img"
-            src="/assets/images/flor.webp"
-            alt="Imagen abstracta 1"
-            className="w-24 h-auto md:w-32 lg:w-40 rounded-lg shadow-lg"
-            sx={{
-              position: "absolute",
-              top: "20%",
-              left: "10%",
-              transform: "rotate(-15deg)",
-            }}
-          />
-          <Box
-            component="img"
-            src="/assets/images/flores.webp"
-            alt="Imagen abstracta 2"
-            className="w-28 h-auto md:w-36 lg:w-48 rounded-xl shadow-xl"
-            sx={{
-              position: "absolute",
-              top: "30%",
-              right: "8%",
-              transform: "rotate(10deg)",
-            }}
-          />
-          <Box
-            component="img"
-            src="/assets/images/jarron_rosa.webp"
-            alt="Imagen abstracta 3"
-            className="w-24 h-auto md:w-32 lg:w-36 rounded-lg shadow-lg"
-            sx={{
-              position: "absolute",
-              bottom: "10%",
-              left: "20%",
-              top: "10%",
-              transform: "rotate(5deg)",
-            }}
-          />
-          <Box
-            component="img"
-            src="/assets/images/magic_please.webp"
-            alt="Imagen abstracta 4"
-            className="w-32 h-auto md:w-40 lg:w-44 rounded-lg shadow-lg"
-            sx={{
-              position: "absolute",
-              bottom: "15%",
-              right: "20%",
-              transform: "rotate(-10deg)",
-            }}
-          />
-
-          {/* Botón central */}
-          <ButtonBase
-            href="mailto:micrana61@gmail.com"
-            sx={{
-              position: "absolute",
-              width: { xs: "200px", md: "300px" },
-              height: { xs: "200px", md: "300px" },
-              left: "50%",
-              transform: "translate(-50%, -50%)",
-              borderRadius: "50%",
-              overflow: "hidden",
-              boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.3)",
-              top: {
-                xs: "calc(25% + 50px)",
-                sm: "calc(15% + 70px)",
-                md: "calc(15% + 80px)",
-              },
-            }}
+        <div className="relative z-20 flex flex-col items-center justify-center py-16 md:py-20 px-4">
+          <p className="text-[#6b6b6b] font-sans text-center mb-6 text-sm md:text-base max-w-xl leading-relaxed">
+            ¿Lista para lucir tus manos y pies perfectos? Reserva tu cita con
+            nuestro equipo de estética.
+          </p>
+          <Link
+            to="/contacto"
+            className="px-8 py-3 border border-[#4a4a4a] text-[#4a4a4a] uppercase tracking-[0.2em] text-sm font-sans transition-all duration-300 hover:bg-[#4a4a4a] hover:text-white"
           >
-            <Box
-              component="img"
-              src="/assets/images/chica-cogiendo-cita.jpg"
-              alt="Solicita tu cita"
-              sx={{ width: "100%", height: "100%", objectFit: "cover" }}
-            />
-          </ButtonBase>
-
-          {/* Texto debajo del botón */}
-          <Typography
-            variant="h6"
-            component="a"
-            href="mailto:micrana61@gmail.com"
-            sx={{
-              position: "absolute",
-              left: "50%",
-              top: {
-                xs: "calc(75% + 60px)",
-                sm: "calc(70% + 70px)",
-                md: "calc(89% + 70px)",
-              },
-              transform: "translateX(-50%)",
-              textAlign: "center",
-              color: "black",
-              textDecoration: "none",
-              fontSize: { xs: "22px", sm: "24px", md: "28px" },
-            }}
-          >
-            <strong>Solicita tu cita</strong>
-          </Typography>
-        </Box>
-      </Box>
+            Solicitar cita
+          </Link>
+        </div>
+      </div>
     </Layout>
   );
 };

@@ -1,4 +1,3 @@
-import React from "react";
 import Layout from "../components/Layout";
 import { Box, Typography, Container } from "@mui/material";
 import CookieConsent from "../components/CookieConsent";
@@ -136,26 +135,36 @@ const Home = () => {
         <img
           src="/assets/images/fotoshome1.webp"
           alt="foto portada1"
+          loading="lazy"
+          decoding="async"
           className="mb-4"
         />
         <img
           src="/assets/images/fotoshome2.webp"
           alt="foto portada2"
+          loading="lazy"
+          decoding="async"
           className="mb-4"
         />
         <img
           src="/assets/images/fotoshome3.webp"
           alt="foto portada3"
+          loading="lazy"
+          decoding="async"
           className="mb-4"
         />
         <img
           src="/assets/images/fotoshome4.webp"
           alt="foto portada4"
+          loading="lazy"
+          decoding="async"
           className="mb-4"
         />
         <img
           src="/assets/images/fotoshome5.webp"
           alt="foto portada5"
+          loading="lazy"
+          decoding="async"
           className="mb-4"
         />
       </section>

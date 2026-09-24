@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Layout from "../components/Layout";
 import { Link } from "react-router-dom";
 import { Phone, LocationOn, AccessTime } from "@mui/icons-material"; // Importamos los iconos desde Material UI
@@ -84,160 +84,183 @@ const Contacto = () => {
   };
 
   return (
-    <Layout>
-      <div className="flex flex-col items-center justify-center min-h-screen bg-violet-100">
-        <h1 className="custom-h2 mt-40 md:mt-36 mb-8 text-center">
-          Contáctanos
-        </h1>
-        <Snackbar
-          open={openSnackbar}
-          autoHideDuration={3000}
-          onClose={handleCloseSnackbar}
-          anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
-        >
-          <Alert
+    <Layout headerBg="#4a5c63">
+      <div className="flex flex-col min-h-full bg-[#f7f5f2]">
+        {/* Franja oscura solo para dar contraste al menú (blanco) en esta página, que no tiene foto de fondo */}
+        <div className="w-full h-24 md:h-28 bg-[#4a5c63] flex-shrink-0" />
+
+        <div className="flex-1 flex flex-col items-center justify-center py-10 px-4">
+          <h1 className="custom-h2 mb-8 text-center">Contáctanos</h1>
+          <Snackbar
+            open={openSnackbar}
+            autoHideDuration={3000}
             onClose={handleCloseSnackbar}
-            severity="success"
-            sx={{ width: "100%" }}
+            anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
           >
-            ¡Tu mensaje ha sido enviado con éxito!
-          </Alert>
-        </Snackbar>
+            <Alert
+              onClose={handleCloseSnackbar}
+              severity="success"
+              sx={{ width: "100%" }}
+            >
+              ¡Tu mensaje ha sido enviado con éxito!
+            </Alert>
+          </Snackbar>
 
-        <div className="flex flex-col md:flex-row items-center md:items-start justify-between w-full max-w-5xl mx-auto p-4 bg-violet-100 rounded-lg mb-8 space-y-4 md:space-y-0">
-          {/* Teléfono */}
-          <div className="flex flex-col items-center text-center w-[399.8px]">
-            <Phone className="text-pink-500" style={{ fontSize: "40px" }} />
-            <div className="mt-2">
-              <p className="text-lg font-semibold">Teléfono</p>
-              <p>918987654 / 665769021</p>
+          <div className="flex flex-col md:flex-row items-center md:items-start justify-between w-full max-w-5xl mx-auto p-4 bg-[#f7f5f2] rounded-lg mb-8 space-y-4 md:space-y-0">
+            {/* Teléfono */}
+            <div className="flex flex-col items-center text-center w-[399.8px]">
+              <Phone sx={{ color: "#c9a273", fontSize: 40 }} />
+              <div className="mt-2">
+                <p className="font-playfair text-lg text-[#4a4a4a] mb-1">
+                  Teléfono
+                </p>
+                <p className="font-sans text-[#6b6b6b]">
+                  918987654 / 665769021
+                </p>
+              </div>
+            </div>
+
+            {/* Dirección */}
+            <div className="flex flex-col items-center text-center w-[399.8px]">
+              <LocationOn sx={{ color: "#c9a273", fontSize: 40 }} />
+              <div className="mt-2">
+                <p className="font-playfair text-lg text-[#4a4a4a] mb-1">
+                  Dirección
+                </p>
+                <p className="font-sans text-[#6b6b6b]">C/Añastro, Madrid</p>
+              </div>
+            </div>
+
+            {/* Horario */}
+            <div className="flex flex-col items-center text-center w-[399.8px]">
+              <AccessTime sx={{ color: "#c9a273", fontSize: 40 }} />
+              <div className="mt-2">
+                <p className="font-playfair text-lg text-[#4a4a4a] mb-1">
+                  Horario
+                </p>
+                <p className="font-sans text-[#6b6b6b]">
+                  De lunes a Viernes 09:30h a 18:30h <br />
+                  Sábados 09:00h a 14:30h <br />
+                  Domingos Cerrado
+                </p>
+              </div>
             </div>
           </div>
 
-          {/* Dirección */}
-          <div className="flex flex-col items-center text-center w-[399.8px]">
-            <LocationOn
-              className="text-pink-500"
-              style={{ fontSize: "40px" }}
-            />
-            <div className="mt-2">
-              <p className="text-lg font-semibold">Dirección</p>
-              <p>C/Añastro, Madrid</p>
-            </div>
-          </div>
-
-          {/* Horario */}
-          <div className="flex flex-col items-center text-center w-[399.8px]">
-            <AccessTime
-              className="text-pink-500"
-              style={{ fontSize: "40px" }}
-            />
-            <div className="mt-2">
-              <p className="text-lg font-semibold">Horario</p>
-              <p>
-                De lunes a Viernes 09:30h a 18:30h <br />
-                Sábados 09:00h a 14:30h <br />
-                Domingos Cerrado
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* Aquí está el formulario */}
-        <h2 className="custom-h2 mb-4">¿Tienes alguna duda?, ¡Escríbenos!</h2>
-        <form
-          onSubmit={handleSubmit}
-          className="flex flex-col w-full max-w-5xl mx-auto p-4 bg-white shadow-md rounded-lg mb-20"
-        >
-          <input
-            type="text"
-            name="name"
-            placeholder="Nombre"
-            onChange={handleChange}
-            value={formData.name}
-            className={`mb-4 p-2 border ${
-              errors.name ? "border-red-500" : "border-gray-300"
-            } rounded w-full bg-pink-100 focus:outline-none focus:ring-2 focus:ring-pink-300`}
-          />
-          {errors.name && <p className="text-red-500 text-sm">{errors.name}</p>}
-
-          <div className="flex flex-col md:flex-row md:space-x-4 space-y-2 md:space-y-0">
-            <div className="w-full md:w-1/2">
-              <input
-                type="email"
-                name="email"
-                placeholder="Email"
-                onChange={handleChange}
-                value={formData.email}
-                className={`p-2 mb-4 border ${
-                  errors.email ? "border-red-500" : "border-gray-300"
-                } rounded w-full bg-pink-100 text-left focus:outline-none focus:ring-2 focus:ring-pink-300`}
-              />
-              {errors.email && (
-                <p className="text-red-500 text-sm">{errors.email}</p>
-              )}
-            </div>
-
-            <div className="w-full md:w-1/2">
-              <input
-                type="tel"
-                name="phone"
-                placeholder="Teléfono"
-                onChange={handleChange}
-                value={formData.phone}
-                className={`p-2 mb-4 border ${
-                  errors.phone ? "border-red-500" : "border-gray-300"
-                } rounded w-full bg-pink-100 text-left focus:outline-none focus:ring-2 focus:ring-pink-300`}
-              />
-              {errors.phone && (
-                <p className="text-red-500 text-sm">{errors.phone}</p>
-              )}
-            </div>
-          </div>
-
-          <textarea
-            name="message"
-            placeholder="Mensaje"
-            onChange={handleChange}
-            value={formData.message}
-            lang="es"
-            className={`mb-4 p-2 border ${
-              errors.message ? "border-red-500" : "border-gray-300"
-            } rounded w-full bg-pink-100 h-[150px] focus:outline-none focus:ring-2 focus:ring-pink-300`}
-          ></textarea>
-          {errors.message && (
-            <p className="text-red-500 text-sm">{errors.message}</p>
-          )}
-
-          <div className="flex items-center mb-4">
+          {/* Aquí está el formulario */}
+          <h2 className="custom-h2 mb-4">¿Tienes alguna duda?, ¡Escríbenos!</h2>
+          <form
+            onSubmit={handleSubmit}
+            className="flex flex-col w-full max-w-5xl mx-auto p-4 bg-white border border-[#e8e2da] shadow-sm mb-20"
+          >
             <input
-              type="checkbox"
-              name="acceptPolicy"
+              type="text"
+              name="name"
+              placeholder="Nombre"
               onChange={handleChange}
-              checked={formData.acceptPolicy}
-              className="mr-2 focus:outline-none focus:ring-2 focus:ring-pink-300"
+              value={formData.name}
+              className={`mb-4 p-2 border ${
+                errors.name ? "border-red-500" : "border-[#e8e2da]"
+              } rounded w-full bg-[#f7f5f2] focus:outline-none focus:ring-2 focus:ring-[#c9a273]`}
             />
-            <span className="text-sm">
-              Acepto la{" "}
-              <Link
-                to="/politica-privacidad"
-                className="text-blue-500 hover:underline"
-              >
-                Política de Privacidad
-              </Link>
-            </span>
-          </div>
-          {errors.acceptPolicy && (
-            <p className="text-red-500 text-sm">{errors.acceptPolicy}</p>
-          )}
+            {errors.name && (
+              <p className="text-red-500 text-sm">{errors.name}</p>
+            )}
 
-          <button
-            type="submit"
-            className="bg-white text-black border border-black py-2 px-4 rounded hover:bg-gray-100 text-sm md:ml-auto md:w-auto"
-          >
-            Enviar
-          </button>
-        </form>
+            <div className="flex flex-col md:flex-row md:space-x-4 space-y-2 md:space-y-0">
+              <div className="w-full md:w-1/2">
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Email"
+                  onChange={handleChange}
+                  value={formData.email}
+                  className={`p-2 mb-4 border ${
+                    errors.email ? "border-red-500" : "border-[#e8e2da]"
+                  } rounded w-full bg-[#f7f5f2] text-left focus:outline-none focus:ring-2 focus:ring-[#c9a273]`}
+                />
+                {errors.email && (
+                  <p className="text-red-500 text-sm">{errors.email}</p>
+                )}
+              </div>
+
+              <div className="w-full md:w-1/2">
+                <input
+                  type="tel"
+                  name="phone"
+                  placeholder="Teléfono"
+                  onChange={handleChange}
+                  value={formData.phone}
+                  className={`p-2 mb-4 border ${
+                    errors.phone ? "border-red-500" : "border-[#e8e2da]"
+                  } rounded w-full bg-[#f7f5f2] text-left focus:outline-none focus:ring-2 focus:ring-[#c9a273]`}
+                />
+                {errors.phone && (
+                  <p className="text-red-500 text-sm">{errors.phone}</p>
+                )}
+              </div>
+            </div>
+
+            <textarea
+              name="message"
+              placeholder="Mensaje"
+              onChange={handleChange}
+              value={formData.message}
+              lang="es"
+              className={`mb-4 p-2 border ${
+                errors.message ? "border-red-500" : "border-[#e8e2da]"
+              } rounded w-full bg-[#f7f5f2] h-[150px] focus:outline-none focus:ring-2 focus:ring-[#c9a273]`}
+            ></textarea>
+            {errors.message && (
+              <p className="text-red-500 text-sm">{errors.message}</p>
+            )}
+
+            <div className="flex items-center mb-4">
+              <input
+                type="checkbox"
+                name="acceptPolicy"
+                onChange={handleChange}
+                checked={formData.acceptPolicy}
+                className="mr-2 accent-[#c9a273] focus:outline-none focus:ring-2 focus:ring-[#c9a273]"
+              />
+              <span className="text-sm text-[#6b6b6b] font-sans">
+                Acepto la{" "}
+                <Link
+                  to="/politica-privacidad"
+                  className="text-[#4a4a4a] underline hover:text-[#c9a273] transition-colors duration-200"
+                >
+                  Política de Privacidad
+                </Link>
+              </span>
+            </div>
+            {errors.acceptPolicy && (
+              <p className="text-red-500 text-sm">{errors.acceptPolicy}</p>
+            )}
+
+            <button
+              type="submit"
+              className="
+              border
+              border-[#4a4a4a]
+              text-[#4a4a4a]
+              uppercase
+              tracking-[0.2em]
+              text-sm
+              font-sans
+              py-2.5
+              px-8
+              transition-all
+              duration-300
+              hover:bg-[#4a4a4a]
+              hover:text-white
+              md:ml-auto
+              md:w-auto
+            "
+            >
+              Enviar
+            </button>
+          </form>
+        </div>
       </div>
     </Layout>
   );

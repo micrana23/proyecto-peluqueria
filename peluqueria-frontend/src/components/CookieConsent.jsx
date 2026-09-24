@@ -1,24 +1,24 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 function CookieConsent() {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     // Comprobar si ya se aceptaron las cookies
-    const cookiesAccepted = localStorage.getItem('cookiesAccepted');
+    const cookiesAccepted = localStorage.getItem("cookiesAccepted");
     if (!cookiesAccepted) {
       setIsVisible(true);
     }
   }, []);
 
   const acceptCookies = () => {
-    localStorage.setItem('cookiesAccepted', 'true');
+    localStorage.setItem("cookiesAccepted", "true");
     setIsVisible(false);
   };
 
   const rejectCookies = () => {
-    localStorage.setItem('cookiesAccepted', 'false');
+    localStorage.setItem("cookiesAccepted", "false");
     setIsVisible(false);
   };
 
@@ -29,10 +29,11 @@ function CookieConsent() {
       <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
         <div className="text-sm sm:text-base text-center sm:text-left">
           <p>
-            Utilizamos cookies propias y de terceros para mejorar nuestros servicios.
+            Utilizamos cookies propias y de terceros para mejorar nuestros
+            servicios.
           </p>
-          <Link 
-            to="/politica-privacidad" 
+          <Link
+            to="/politica-privacidad"
             className="text-blue-400 hover:text-blue-300 underline"
           >
             Leer más sobre nuestra política de cookies

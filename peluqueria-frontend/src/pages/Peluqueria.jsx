@@ -1,56 +1,22 @@
-import React from "react";
 import Layout from "../components/Layout";
 import { Grid, Typography, useMediaQuery } from "@mui/material";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
+import { colorGalleryImages, hairServices } from "../data/serviceContent";
 
 const Peluqueria = () => {
-  const services = [
-    {
-      title: "Cortes de cabello personalizados",
-      image: "/assets/images/cortando pelo.webp",
-      description:
-        "Incluye lavado dermocapilar, producto de styling y servicio de peinado.",
-    },
-    {
-      title: "Peinados",
-      image: "/assets/images/rizando pelo.webp",
-      description: "Incluye lavado dermocapilar y producto de styling.",
-    },
-    {
-      title: "Coloración saludable",
-      image: "/assets/images/color cabello.webp",
-      description:
-        "Conseguimos una coloración profesional sin dañar el cabello.",
-    },
-    {
-      title: "Tratamientos capilares",
-      image: "/assets/images/estanteria cosmeticos.webp",
-      description:
-        "Gran gama de tratamientos para mimar cada tipo de cabello tanto en el salón como para casa.",
-    },
-  ];
-
-  const images = [
-    "/assets/images/rubia2.webp",
-    "/assets/images/reflejos.webp",
-    "/assets/images/pelirroja.webp",
-    "/assets/images/mechas.webp",
-    "/assets/images/modelomechas.jpg",
-    "/assets/images/castañarizado.webp",
-  ];
-
-  // Consulta para pantallas móviles
-  const isMobile = useMediaQuery("(max-width: 599px)");
+  const isMobileViewport = useMediaQuery("(max-width: 599px)");
 
   return (
     <Layout>
       <div className="relative">
         {/* Imagen de fondo */}
         <img
-          src="/assets/images/tijeras.jpg"
-          alt="Descripción de la imagen"
+          src="/assets/images/tijeras.webp"
+          alt="Herramientas profesionales de peluquería"
           className="w-full h-auto sm:h-[550px] h-[550px] object-cover relative z-0"
+          loading="eager"
+          decoding="async"
         />
         {/* Título (h1) fuera de la imagen */}
         <div className="relative z-20 flex flex-col items-center justify-center my-8">
@@ -69,7 +35,7 @@ const Peluqueria = () => {
           className="relative z-20 my-8 px-4"
           style={{ marginBottom: "130px" }}
         >
-          {services.map((service) => (
+          {hairServices.map((service) => (
             <Grid item xs={12} sm={6} md={3} key={service.title}>
               <div
                 style={{
@@ -81,6 +47,8 @@ const Peluqueria = () => {
                 <img
                   src={service.image}
                   alt={service.title}
+                  loading="lazy"
+                  decoding="async"
                   style={{
                     width: "100%",
                     height: "237.033px",
@@ -242,6 +210,8 @@ const Peluqueria = () => {
               <img
                 src="/assets/images/productos pelu.webp"
                 alt="Productos para el cabello"
+                loading="lazy"
+                decoding="async"
                 style={{
                   width: "100%",
                   height: "100%",
@@ -260,7 +230,7 @@ const Peluqueria = () => {
           </div>
 
           {/* Carrusel para pantallas medianas y grandes */}
-          {!isMobile && (
+          {!isMobileViewport && (
             <div className="relative z-20 flex justify-center items-center max-w-6xl mx-auto">
               <Carousel
                 showArrows
@@ -272,7 +242,7 @@ const Peluqueria = () => {
                 dynamicHeight={false}
                 emulateTouch
               >
-                {images.map((image, index) => (
+                {colorGalleryImages.map((image, index) => (
                   <div
                     key={index}
                     style={{
@@ -282,6 +252,8 @@ const Peluqueria = () => {
                     <img
                       src={image}
                       alt={`Trabajo en coloración ${index + 1}`}
+                      loading="lazy"
+                      decoding="async"
                       style={{
                         height: "460px", // Mantiene la altura de 460px
                         objectFit: "cover",
@@ -297,13 +269,15 @@ const Peluqueria = () => {
           )}
 
           {/* Imágenes apiladas para pantallas móviles */}
-          {isMobile && (
+          {isMobileViewport && (
             <div className="grid grid-cols-1 gap-4 max-w-6xl mx-auto">
-              {images.map((image, index) => (
+              {colorGalleryImages.map((image, index) => (
                 <div key={index} className="flex justify-center">
                   <img
                     src={image}
                     alt={`Trabajo en coloración ${index + 1}`}
+                    loading="lazy"
+                    decoding="async"
                     style={{
                       width: "50%",
                       height: "320px",

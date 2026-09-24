@@ -6,7 +6,6 @@ export default {
     extend: {
       fontFamily: {
         playfair: ['"Playfair Display"', "serif"],
-        dancing: ['"Dancing Script"', "cursive"],
         sans: ['"Inter"', "system-ui", "sans-serif"],
       },
       fontWeight: {
