@@ -1,12 +1,10 @@
-import dotenv from "dotenv";
-
-dotenv.config(); // Cargar variables de entorno
+import { env } from "./env.js";
 
 const mailConfig = {
   service: "gmail",
   auth: {
-    user: process.env.EMAIL_USER, // Tu dirección de correo electrónico
-    pass: process.env.EMAIL_PASS, // Contraseña de aplicación generada
+    user: env.emailUser,
+    pass: env.emailPass,
   },
 };
 

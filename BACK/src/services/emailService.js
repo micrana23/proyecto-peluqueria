@@ -1,13 +1,15 @@
 import nodemailer from "nodemailer";
 import mailConfig from "../config/mailConfig.js";
+import { env } from "../config/env.js";
 
 const sendMail = async (name, email, phone, message) => {
   try {
     const transporter = nodemailer.createTransport(mailConfig);
 
     const mailOptions = {
-      from: email, // Email del remitente
+      from: env.emailUser,
       to: "micrana61@gmail.com", // Tu email donde recibirás los mensajes
+      replyTo: email,
       subject: `Consulta de ${name}`,
       text: `Nombre: ${name}\nEmail: ${email}\nTeléfono: ${phone}\n\nMensaje: ${message}`,
     };

@@ -1,15 +1,29 @@
-// backend/controllers/emailController.js
-
 import sendMail from "../services/emailService.js";
+import { validateContactPayload } from "../utils/contactValidation.js";
 
 const sendEmail = async (req, res) => {
-  const { name, email, phone, message } = req.body;
+  const { errors, values } = validateContactPayload(req.body);
+
+  if (Object.keys(errors).length > 0) {
+    return res.status(400).json({
+      success: false,
+      message: "Revisa los datos del formulario",
+      errors,
+    });
+  }
 
   try {
-    await sendMail(name, email, phone, message);
-    res.status(200).json({ message: "Correo enviado con éxito" });
+    await sendMail(values.name, values.email, values.phone, values.message);
+    return res.status(200).json({
+      success: true,
+      message: "Correo enviado con éxito",
+    });
   } catch (error) {
-    res.status(500).json({ message: "Error al enviar el correo", error });
+    console.error("Error al enviar el correo:", error);
+    return res.status(500).json({
+      success: false,
+      message: "Error al enviar el correo",
+    });
   }
 };
 

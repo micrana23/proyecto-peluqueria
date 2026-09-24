@@ -15,6 +15,8 @@ const Contacto = () => {
 
   const [errors, setErrors] = useState({});
   const [openSnackbar, setOpenSnackbar] = useState(false);
+  const [submitError, setSubmitError] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleCloseSnackbar = () => {
     setOpenSnackbar(false);
@@ -55,14 +57,20 @@ const Contacto = () => {
       return;
     }
 
+    setIsSubmitting(true);
+    setSubmitError("");
+
     try {
-      const response = await fetch("http://localhost:5000/api/send-email", {
+      const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:5000";
+      const response = await fetch(`${apiUrl}/api/send-email`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(formData),
       });
+
+      const result = await response.json().catch(() => ({}));
 
       if (response.ok) {
         setOpenSnackbar(true);
@@ -76,10 +84,15 @@ const Contacto = () => {
         });
         setErrors({}); //Limpia los errores también, en caso de que los haya habido
       } else {
-        alert("Error al enviar el email");
+        throw new Error(result.message || "No se pudo enviar el mensaje");
       }
     } catch (error) {
       console.error("Error al enviar el email:", error);
+      setSubmitError(
+        "No se ha podido enviar el mensaje. Inténtalo de nuevo en unos instantes.",
+      );
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -103,6 +116,20 @@ const Contacto = () => {
               sx={{ width: "100%" }}
             >
               ¡Tu mensaje ha sido enviado con éxito!
+            </Alert>
+          </Snackbar>
+          <Snackbar
+            open={Boolean(submitError)}
+            autoHideDuration={5000}
+            onClose={() => setSubmitError("")}
+            anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+          >
+            <Alert
+              onClose={() => setSubmitError("")}
+              severity="error"
+              sx={{ width: "100%" }}
+            >
+              {submitError}
             </Alert>
           </Snackbar>
 
@@ -239,6 +266,7 @@ const Contacto = () => {
 
             <button
               type="submit"
+              disabled={isSubmitting}
               className="
               border
               border-[#4a4a4a]
@@ -253,11 +281,13 @@ const Contacto = () => {
               duration-300
               hover:bg-[#4a4a4a]
               hover:text-white
+              disabled:opacity-50
+              disabled:cursor-not-allowed
               md:ml-auto
               md:w-auto
             "
             >
-              Enviar
+              {isSubmitting ? "Enviando..." : "Enviar"}
             </button>
           </form>
         </div>
