@@ -5,5 +5,6 @@ dotenv.config();
 export const env = {
   port: process.env.PORT || 5000,
   emailUser: process.env.EMAIL_USER,
+  // Google muestra las contraseñas de aplicación separadas por espacios.
   emailPass: process.env.EMAIL_PASS?.replace(/\s+/g, ""),
 };

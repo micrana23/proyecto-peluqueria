@@ -57,10 +57,12 @@ const Contacto = () => {
       return;
     }
 
+    // Bloquea envíos duplicados mientras la API procesa el correo.
     setIsSubmitting(true);
     setSubmitError("");
 
     try {
+      // En producción la URL se configura sin cambiar el código de la página.
       const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:5000";
       const response = await fetch(`${apiUrl}/api/send-email`, {
         method: "POST",

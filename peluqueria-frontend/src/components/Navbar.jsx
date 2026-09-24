@@ -9,6 +9,7 @@ function Navbar() {
   const [smallScreenSubMenuOpen, setSmallScreenSubMenuOpen] = useState(false);
   const timeoutRef = useRef(null);
 
+  // Retrasa el cierre para permitir pasar del enlace al submenú con el ratón.
   const handleMouseEnter = () => {
     if (timeoutRef.current) clearTimeout(timeoutRef.current);
     setSubMenuOpen(true);
@@ -20,6 +21,7 @@ function Navbar() {
     }, 300);
   };
 
+  // Evita dejar un timeout activo si el componente se desmonta.
   useEffect(() => () => clearTimeout(timeoutRef.current), []);
 
   const linkClass =

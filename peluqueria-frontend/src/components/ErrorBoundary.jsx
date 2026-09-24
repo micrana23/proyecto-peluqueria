@@ -8,6 +8,7 @@ class ErrorBoundary extends Component {
   }
 
   static getDerivedStateFromError() {
+    // Sustituye una vista rota por una salida recuperable para el usuario.
     return { hasError: true };
   }
 

@@ -6,6 +6,7 @@ const sendMail = async (name, email, phone, message) => {
   try {
     const transporter = nodemailer.createTransport(mailConfig);
 
+    // El buzón autenticado es el remitente; el email del visitante se conserva como respuesta.
     const mailOptions = {
       from: env.emailUser,
       to: "micrana61@gmail.com", // Tu email donde recibirás los mensajes

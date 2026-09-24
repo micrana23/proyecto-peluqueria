@@ -2,6 +2,7 @@ const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const phonePattern = /^\d{9}$/;
 
 export function validateContactPayload(payload = {}) {
+  // Normaliza el texto antes de validar y evita aceptar valores que no sean strings.
   const name = typeof payload.name === "string" ? payload.name.trim() : "";
   const email = typeof payload.email === "string" ? payload.email.trim() : "";
   const phone = typeof payload.phone === "string" ? payload.phone.trim() : "";

@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import ScrollToTop from "./components/ScrollToTop";
 import ErrorBoundary from "./components/ErrorBoundary";
 
+// Cada página se descarga solo cuando se visita para reducir la carga inicial.
 const Home = lazy(() => import("./pages/Home"));
 const Contacto = lazy(() => import("./pages/Contacto"));
 const Peluqueria = lazy(() => import("./pages/Peluqueria"));
