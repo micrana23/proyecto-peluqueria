@@ -21,6 +21,12 @@ function Navbar() {
     }, 300);
   };
 
+  const handleMenuBlur = (event) => {
+    if (!event.currentTarget.contains(event.relatedTarget)) {
+      setSubMenuOpen(false);
+    }
+  };
+
   // Evita dejar un timeout activo si el componente se desmonta.
   useEffect(() => () => clearTimeout(timeoutRef.current), []);
 
@@ -39,16 +45,25 @@ function Navbar() {
           className="relative"
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
+          onFocus={handleMouseEnter}
+          onBlur={handleMenuBlur}
         >
           <button
             type="button"
+            aria-haspopup="menu"
+            aria-expanded={subMenuOpen}
             className={`${linkClass} cursor-pointer`}
-            onClick={() => setSubMenuOpen((open) => !open)}
+            onClick={(event) =>
+              setSubMenuOpen((open) => (event.detail === 0 ? true : !open))
+            }
           >
             Servicios
           </button>
           {subMenuOpen && (
-            <ul className="absolute left-1/2 -translate-x-1/2 bg-[#33434a] border-t border-[#e3c9a0]/40 shadow-xl mt-4 rounded-sm z-10 w-48 py-2">
+            <ul
+              role="menu"
+              className="absolute left-1/2 -translate-x-1/2 bg-[#33434a] border-t border-[#e3c9a0]/40 shadow-xl mt-4 rounded-sm z-10 w-48 py-2"
+            >
               <ServiceMenuItems onNavigate={() => setSubMenuOpen(false)} />
             </ul>
           )}
@@ -63,14 +78,19 @@ function Navbar() {
       <div className="md:hidden">
         <IconButton
           edge="end"
-          aria-label="menu"
+          aria-label="Abrir menú principal"
+          aria-controls="mobile-menu"
+          aria-expanded={subMenuOpen}
           onClick={() => setSubMenuOpen(!subMenuOpen)}
           sx={{ color: "#ffffff" }}
         >
           <MenuIcon />
         </IconButton>
         {subMenuOpen && (
-          <div className="absolute right-4 bg-[#33434a] border-t border-[#e3c9a0]/40 shadow-xl rounded-sm">
+          <div
+            id="mobile-menu"
+            className="absolute right-4 bg-[#33434a] border-t border-[#e3c9a0]/40 shadow-xl rounded-sm"
+          >
             <ul className="z-10 w-48 py-2">
               <li>
                 <Link
@@ -82,25 +102,17 @@ function Navbar() {
                 </Link>
               </li>
               <li>
-                <div className="flex items-center justify-between px-3 py-2">
-                  <button
-                    type="button"
-                    className="block flex-1 px-2 py-2.5 text-left text-white/90 font-sans font-light text-sm tracking-wide cursor-pointer hover:text-[#e3c9a0] transition-colors duration-200"
-                    onClick={() => setSmallScreenSubMenuOpen((open) => !open)}
-                  >
-                    Servicios
-                  </button>
-                  <button
-                    type="button"
-                    aria-label="Alternar servicios"
-                    className="px-2 py-2.5 text-white/90 hover:text-[#e3c9a0] transition-colors duration-200"
-                    onClick={() => setSmallScreenSubMenuOpen((open) => !open)}
-                  >
-                    {smallScreenSubMenuOpen ? "▴" : "▾"}
-                  </button>
-                </div>
+                <button
+                  type="button"
+                  aria-haspopup="menu"
+                  aria-expanded={smallScreenSubMenuOpen}
+                  className="block w-full px-5 py-2.5 text-left text-white/90 font-sans font-light text-sm tracking-wide cursor-pointer hover:text-[#e3c9a0] transition-colors duration-200"
+                  onClick={() => setSmallScreenSubMenuOpen((open) => !open)}
+                >
+                  Servicios {smallScreenSubMenuOpen ? "▴" : "▾"}
+                </button>
                 {smallScreenSubMenuOpen && (
-                  <ul className="bg-[#3c4d54] mt-1">
+                  <ul role="menu" className="bg-[#3c4d54] mt-1">
                     <ServiceMenuItems
                       mobile
                       onNavigate={() => setSubMenuOpen(false)}

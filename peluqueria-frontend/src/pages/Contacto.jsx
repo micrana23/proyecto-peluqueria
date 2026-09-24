@@ -182,10 +182,18 @@ const Contacto = () => {
             onSubmit={handleSubmit}
             className="flex flex-col w-full max-w-5xl mx-auto p-4 bg-white border border-[#e8e2da] shadow-sm mb-20"
           >
+            <label htmlFor="contact-name" className="sr-only">
+              Nombre
+            </label>
             <input
+              id="contact-name"
               type="text"
               name="name"
               placeholder="Nombre"
+              autoComplete="name"
+              aria-invalid={Boolean(errors.name)}
+              aria-describedby={errors.name ? "name-error" : undefined}
+              required
               onChange={handleChange}
               value={formData.name}
               className={`mb-4 p-2 border ${
@@ -193,15 +201,25 @@ const Contacto = () => {
               } rounded w-full bg-[#f7f5f2] focus:outline-none focus:ring-2 focus:ring-[#c9a273]`}
             />
             {errors.name && (
-              <p className="text-red-500 text-sm">{errors.name}</p>
+              <p id="name-error" role="alert" className="text-red-500 text-sm">
+                {errors.name}
+              </p>
             )}
 
             <div className="flex flex-col md:flex-row md:space-x-4 space-y-2 md:space-y-0">
               <div className="w-full md:w-1/2">
+                <label htmlFor="contact-email" className="sr-only">
+                  Email
+                </label>
                 <input
+                  id="contact-email"
                   type="email"
                   name="email"
                   placeholder="Email"
+                  autoComplete="email"
+                  aria-invalid={Boolean(errors.email)}
+                  aria-describedby={errors.email ? "email-error" : undefined}
+                  required
                   onChange={handleChange}
                   value={formData.email}
                   className={`p-2 mb-4 border ${
@@ -209,15 +227,30 @@ const Contacto = () => {
                   } rounded w-full bg-[#f7f5f2] text-left focus:outline-none focus:ring-2 focus:ring-[#c9a273]`}
                 />
                 {errors.email && (
-                  <p className="text-red-500 text-sm">{errors.email}</p>
+                  <p
+                    id="email-error"
+                    role="alert"
+                    className="text-red-500 text-sm"
+                  >
+                    {errors.email}
+                  </p>
                 )}
               </div>
 
               <div className="w-full md:w-1/2">
+                <label htmlFor="contact-phone" className="sr-only">
+                  Teléfono
+                </label>
                 <input
+                  id="contact-phone"
                   type="tel"
                   name="phone"
                   placeholder="Teléfono"
+                  autoComplete="tel"
+                  inputMode="numeric"
+                  aria-invalid={Boolean(errors.phone)}
+                  aria-describedby={errors.phone ? "phone-error" : undefined}
+                  required
                   onChange={handleChange}
                   value={formData.phone}
                   className={`p-2 mb-4 border ${
@@ -225,14 +258,28 @@ const Contacto = () => {
                   } rounded w-full bg-[#f7f5f2] text-left focus:outline-none focus:ring-2 focus:ring-[#c9a273]`}
                 />
                 {errors.phone && (
-                  <p className="text-red-500 text-sm">{errors.phone}</p>
+                  <p
+                    id="phone-error"
+                    role="alert"
+                    className="text-red-500 text-sm"
+                  >
+                    {errors.phone}
+                  </p>
                 )}
               </div>
             </div>
 
+            <label htmlFor="contact-message" className="sr-only">
+              Mensaje
+            </label>
             <textarea
+              id="contact-message"
               name="message"
               placeholder="Mensaje"
+              autoComplete="off"
+              aria-invalid={Boolean(errors.message)}
+              aria-describedby={errors.message ? "message-error" : undefined}
+              required
               onChange={handleChange}
               value={formData.message}
               lang="es"
@@ -241,13 +288,27 @@ const Contacto = () => {
               } rounded w-full bg-[#f7f5f2] h-[150px] focus:outline-none focus:ring-2 focus:ring-[#c9a273]`}
             ></textarea>
             {errors.message && (
-              <p className="text-red-500 text-sm">{errors.message}</p>
+              <p
+                id="message-error"
+                role="alert"
+                className="text-red-500 text-sm"
+              >
+                {errors.message}
+              </p>
             )}
 
             <div className="flex items-center mb-4">
+              <label htmlFor="accept-policy" className="sr-only">
+                Aceptar política de privacidad
+              </label>
               <input
+                id="accept-policy"
                 type="checkbox"
                 name="acceptPolicy"
+                aria-invalid={Boolean(errors.acceptPolicy)}
+                aria-describedby={
+                  errors.acceptPolicy ? "accept-policy-error" : undefined
+                }
                 onChange={handleChange}
                 checked={formData.acceptPolicy}
                 className="mr-2 accent-[#c9a273] focus:outline-none focus:ring-2 focus:ring-[#c9a273]"
@@ -263,12 +324,19 @@ const Contacto = () => {
               </span>
             </div>
             {errors.acceptPolicy && (
-              <p className="text-red-500 text-sm">{errors.acceptPolicy}</p>
+              <p
+                id="accept-policy-error"
+                role="alert"
+                className="text-red-500 text-sm"
+              >
+                {errors.acceptPolicy}
+              </p>
             )}
 
             <button
               type="submit"
               disabled={isSubmitting}
+              aria-busy={isSubmitting}
               className="
               border
               border-[#4a4a4a]

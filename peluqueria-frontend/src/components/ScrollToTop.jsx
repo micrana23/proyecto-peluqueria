@@ -6,10 +6,14 @@ export default function ScrollToTop() {
 
   useEffect(() => {
     // React Router conserva el scroll entre rutas; cada página debe empezar arriba.
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+
     window.scrollTo({
       top: 0,
       left: 0,
-      behavior: "auto",
+      behavior: prefersReducedMotion ? "auto" : "smooth",
     });
   }, [pathname]);
 

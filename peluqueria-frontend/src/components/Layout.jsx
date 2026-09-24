@@ -9,8 +9,16 @@ import { Link } from "react-router-dom";
 const Layout = ({ children, headerBg }) => {
   return (
     <div className="flex flex-col w-full min-h-screen bg-white-100">
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:bg-white focus:px-4 focus:py-2 focus:text-[#4a4a4a]"
+      >
+        Saltar al contenido principal
+      </a>
       <Header forcedBg={headerBg} />
-      <main className="flex-grow">{children}</main>
+      <main id="main-content" className="flex-grow">
+        {children}
+      </main>
       <footer className="relative p-6 md:p-10 bg-[#33434a] text-white/90 border-t border-[#e3c9a0]/30">
         {/* Ajustamos las secciones para que se apilen en pantallas pequeñas */}
         <div className="flex flex-wrap items-start justify-between md:flex-nowrap gap-y-8 max-w-6xl mx-auto">
