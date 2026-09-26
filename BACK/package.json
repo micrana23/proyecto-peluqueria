@@ -6,7 +6,7 @@
   "main": "app.js",
   "scripts": {
     "test": "node --test",
-    "start": "node app.js",
+    "start": "node sr",
     "dev": "nodemon src/server.js"
   },
   "keywords": [],

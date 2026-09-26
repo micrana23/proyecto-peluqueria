@@ -6,7 +6,9 @@ import { env } from "./src/config/env.js";
 
 const app = express();
 
-app.use(cors(env.corsOrigins?.length ? { origin: env.corsOrigins } : undefined));
+app.use(
+  cors(env.corsOrigins?.length ? { origin: env.corsOrigins } : undefined),
+);
 app.use(express.json({ limit: "10kb" }));
 
 // Ruta para la raíz (opcional)

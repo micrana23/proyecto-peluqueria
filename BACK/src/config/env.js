@@ -7,8 +7,7 @@ export const env = {
   emailUser: process.env.EMAIL_USER,
   // Google muestra las contraseñas de aplicación separadas por espacios.
   emailPass: process.env.EMAIL_PASS?.replace(/\s+/g, ""),
-  corsOrigins: process.env.CORS_ORIGIN
-    ?.split(",")
+  corsOrigins: process.env.CORS_ORIGIN?.split(",")
     .map((origin) => origin.trim())
     .filter(Boolean),
 };
