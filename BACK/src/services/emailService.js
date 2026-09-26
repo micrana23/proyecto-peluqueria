@@ -1,21 +1,17 @@
-import nodemailer from "nodemailer";
-import mailConfig from "../config/mailConfig.js";
+import { Resend } from "resend";
 import { env } from "../config/env.js";
+
+const resend = new Resend(env.resendApiKey);
 
 const sendMail = async (name, email, phone, message) => {
   try {
-    const transporter = nodemailer.createTransport(mailConfig);
-
-    // El buzón autenticado es el remitente; el email del visitante se conserva como respuesta.
-    const mailOptions = {
-      from: env.emailUser,
-      to: "micrana61@gmail.com", // Tu email donde recibirás los mensajes
+    await resend.emails.send({
+      from: "onboarding@resend.com", // cámbialo cuando verifiques tu propio dominio
+      to: "micrana61@gmail.com",
       replyTo: email,
       subject: `Consulta de ${name}`,
       text: `Nombre: ${name}\nEmail: ${email}\nTeléfono: ${phone}\n\nMensaje: ${message}`,
-    };
-
-    await transporter.sendMail(mailOptions);
+    });
     console.log("Correo enviado con éxito");
   } catch (error) {
     console.error("Error al enviar el correo:", error);
