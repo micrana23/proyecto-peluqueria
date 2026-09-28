@@ -1,20 +1,33 @@
 import Layout from "../components/Layout";
+import { useEffect, useRef } from "react";
 import { Box, Typography, Container } from "@mui/material";
 import CookieConsent from "../components/CookieConsent";
 import { Link } from "react-router-dom";
 
 const Home = () => {
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (video) {
+      video.muted = true; // Safari necesita el vídeo silenciado para el autoplay
+      video.play().catch(() => {});
+    }
+  }, []);
   return (
     <Layout>
       {/* Contenedor de fondo con la imagen */}
       <div className="relative flex flex-col items-center justify-center w-full min-h-screen">
         <video
+          ref={videoRef}
           autoPlay
           loop
           muted
+          playsInline
+          preload="auto"
           className="absolute top-0 left-0 w-full h-full object-cover"
         >
-          <source src="/assets/images/video peinando.mp4" type="video/mp4" />
+          <source src="/assets/images/video-peinando.mp4" type="video/mp4" />
           Tu navegador no soporta la etiqueta de video.
         </video>
 
